@@ -1,9 +1,11 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
+import Hero from "./components/Hero.vue";
+import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
-  <h1 class="font-bold">test</h1>
+  <Navbar />
+  <Hero />
 </template>
 
 <style scoped></style>
