@@ -16,10 +16,19 @@
         ></div>
 
         <div
-          class="border flex justify-center flex-col w-full h-full items-center absolute z-20"
+          class="flex justify-center flex-col w-full h-full items-center absolute z-20"
         >
-          <h1 class="font-black text-white-400 text-7xl">UNIPRO STAGE X</h1>
-          <button class="cursor-pointer">DAFTAR SEKARANG</button>
+          <h1 class="font-black text-white-400 text-8xl">UNIPRO STAGE X</h1>
+          <p class="p-2 rounded-2xl font-bold">
+            Innovative Clinics: Blending Creativity and Technology for Quality
+            Healthcare
+          </p>
+          <p>when yh</p>
+          <button
+            class="cursor-pointer bg-black pb-3 pt-3 pl-4 pr-4 font-bold rounded-xl mt-2 hover:bg-white hover:text-black shadow-[#1b1b1b] shadow-md"
+          >
+            DAFTAR SEKARANG
+          </button>
         </div>
       </div>
 

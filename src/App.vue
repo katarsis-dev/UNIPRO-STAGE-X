@@ -1,11 +1,12 @@
 <script setup>
-import Hero from "./components/Hero.vue";
 import Navbar from "./components/Navbar.vue";
+import HomePages from "./pages/HomePages.vue";
 </script>
 
 <template>
   <Navbar />
-  <Hero />
+
+  <HomePages />
 </template>
 
 <style scoped></style>

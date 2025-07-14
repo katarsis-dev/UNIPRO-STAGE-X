@@ -9,7 +9,7 @@
         <img
           src="../assets/text.png"
           alt="text-logo"
-          class="w-80 absolute -top-17 drop-shadow-xl/50 cursor-pointer"
+          class="w-80 absolute -top-17 drop-shadow- xl/50 cursor-pointer"
         />
       </div>
       <div
