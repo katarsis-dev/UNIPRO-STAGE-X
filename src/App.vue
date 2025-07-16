@@ -1,12 +1,12 @@
 <script setup>
+import Footer from "./components/Footer.vue";
 import Navbar from "./components/Navbar.vue";
-import HomePages from "./pages/HomePages.vue";
 </script>
 
 <template>
   <Navbar />
-
-  <HomePages />
+  <RouterView />
+  <Footer />
 </template>
 
 <style scoped></style>
