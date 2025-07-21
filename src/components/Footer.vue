@@ -5,7 +5,7 @@
                 <div class="flex flex-col gap-8 max-w-2/5 ">
                     <div class="flex items-center gap-4">
                         <div class="relative w-[100px] flex justify-center overflow-hidden ">
-                            <img src="../assets/text.png " class="scale-150 shadow shadow-gray-700" alt="">
+                            <img src="../assets/logo.png " class="scale-150 shadow shadow-gray-700" alt="">
                         </div>
                         <h2 class="font-black text-md">UNIPRO STAGE X</h2>
                     </div>

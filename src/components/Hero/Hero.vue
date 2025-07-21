@@ -2,7 +2,7 @@
   <div class="h-dvh flex justify-center items-center relative overflow-hidden min-w-[1150px]">
     <div class="flex justify-between content-center items-center w-full h-full \">
       <div
-        class="h-[80dvh] p-10 min-w-4xl absolute m-auto top-20 bottom-0 -left-200 bg-[#161616] rounded-br-2xl rounded-tr-2xl shadow-lg shadow-black -skew-x-12 z-10">
+        class="h-[80dvh] p-10 min-w-4xl absolute m-auto top-20 bottom-0 -left-200 bg-[#27272A] rounded-br-2xl rounded-tr-2xl shadow-lg shadow-black -skew-x-12 z-10">
       </div>
 
       <div
@@ -20,14 +20,14 @@
           </p>
           <p>when yh</p>
           <button
-            class="cursor-pointer bg-black pb-3 pt-3 pl-4 pr-4 font-bold rounded-xl mt-2 hover:bg-white hover:text-black shadow-[#1b1b1b] shadow-md">
+            class="cursor-pointer bg-[#B91C1C] pb-3 pt-3 pl-4 pr-4 font-bold rounded-xl mt-2 hover:bg-[#991B1B] shadow-[#1b1b1b] shadow-md">
             DAFTAR SEKARANG
           </button>
         </div>
       </div>
 
       <div
-        class="h-[80dvh] p-10 absolute min-w-4xl m-auto top-20 bottom-0  -right-200 bg-[#161616] rounded-bl-2xl rounded-tl-2xl shadow-lg shadow-black -skew-x-12 z-10">
+        class="h-[80dvh] p-10 absolute min-w-4xl m-auto top-20 bottom-0  -right-200 bg-[#27272A] rounded-bl-2xl rounded-tl-2xl shadow-lg shadow-black -skew-x-12 z-10">
       </div>
     </div>
   </div>
