@@ -15,10 +15,16 @@
 
 body {
   font-family: "Oxanium", sans-serif;
-  margin: 0;
-  background-color: #18181b;
+  margin: 0 auto;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0;
 }
+
+
+
 ::-webkit-scrollbar {
   visibility: hidden;
   width: 0;

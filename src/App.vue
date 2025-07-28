@@ -4,9 +4,11 @@ import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
-  <Navbar />
-  <RouterView />
-  <Footer />
+  <div class=" flex flex-col items-center w-dvw max-w-[1536px] bg-[#18181b]">
+    <Navbar />
+    <RouterView />
+    <Footer />
+  </div>
 </template>
 
 <style scoped></style>

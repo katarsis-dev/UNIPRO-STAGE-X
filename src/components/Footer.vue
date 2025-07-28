@@ -1,5 +1,5 @@
 <template>
-    <div class="p-4 bg-black rounded-t-2xl flex justify-center items-center ">
+    <div class="w-full p-4 bg-black rounded-t-2xl flex justify-center items-center ">
         <div class="flex justify-center items-start container max-w-[1440px] flex-col gap-2">
             <section class="w-full flex justify-between p-4 ">
                 <div class="flex flex-col gap-8 max-w-2/5 ">
