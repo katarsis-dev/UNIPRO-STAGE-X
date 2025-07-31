@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-dvh flex justify-center items-center">
+  <div id="hero-section" class="w-full h-dvh flex justify-center items-center">
     <div class="flex justify-between relative content-center items-center w-full overflow-hidden h-full">
       <div
         class="h-[80dvh] p-10 min-w-4xl absolute m-auto top-20 bottom-0 -left-200 bg-[#27272A] rounded-br-2xl rounded-tr-2xl shadow-lg shadow-black -skew-x-12 z-10">

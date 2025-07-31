@@ -9,7 +9,9 @@
   <nav class="w-full flex items-center justify-center align-middle relative">
     <div
       class=" w-[90%] inset-shadow-2xs  border-4 border-t-0 border-[#262626] fixed top-0 m-0 z-50 container flex flex-nowrap justify-between shadow-black shadow-2xl rounded-b-3xl pl-4 pr-4 bg-black content-center min-w-[750px]">
-      <img src="../assets/logo.png" alt="" class="w-[100px] cursor-pointer">
+      <router-link to="/">
+        <img src="../assets/logo.png" alt="" class="w-[100px] cursor-pointer">
+      </router-link>
       <div class="flex flex-row flex-nowrap items-center min-w-2/4 justify-between  ">
         <button
           class="focus:outline-2 focus:outline-offset-2 focus:outline-white pt-2 pb-2 pl-3 pr-3 cursor-pointer font-bold hover:bg-white hover:text-black rounded-3xl duration-200 ease-in-out">
@@ -17,11 +19,11 @@
         </button>
         <button
           class="focus:outline-2 focus:outline-offset-2 focus:outline-white pt-2 pb-2 pl-3 pr-3 cursor-pointer font-bold hover:bg-white hover:text-black rounded-3xl duration-200 ease-in-out">
-          Timelne
+          Timeline
         </button>
         <button
           class="focus:outline-2 focus:outline-offset-2 focus:outline-white pt-2 pb-2 pl-3 pr-3 cursor-pointer font-bold hover:bg-white hover:text-black rounded-3xl duration-200 ease-in-out">
-          Gallery
+          Alur Pendaftaran
         </button>
         <button
           class="focus:outline-2 focus:outline-offset-2 focus:outline-white pt-2 pb-2 pl-3 pr-3 cursor-pointer font-bold hover:bg-white hover:text-black rounded-3xl duration-200 ease-in-out">
@@ -33,10 +35,12 @@
         </button>
       </div>
       <div class=" flex items-center">
-        <button
-          class="pt-2 pb-2 pl-3 pr-3 cursor-pointer font-bold bg-white shadow-sm text-black rounded-3xl duration-200 ease-in-out">
-          Register
-        </button>
+        <router-link to="/register">
+          <button
+            class="px-5 py-2 cursor-pointer font-semibold bg-white shadow-sm text-black hover:bg-red-100 rounded-xl duration-200 ease-in-out">
+            Register
+          </button>
+        </router-link>
       </div>
     </div>
   </nav>
