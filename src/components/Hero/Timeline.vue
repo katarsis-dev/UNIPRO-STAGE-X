@@ -19,9 +19,9 @@ onMounted(() => {
 
 <template>
     <!--Container-->
-    <div id="timeline-section" class="w-full pt-10 pb-10 flex justify-center items-center  bg-[#0c0c0d]">
+    <div id="timeline-section" class="w-full text-center pt-10 pb-10 flex justify-center items-center  bg-[#0c0c0d]">
         <!--Container-content-->
-        <div class=" container w-[90%] flex flex-col justify-center gap-5">
+        <div class="  w-[90%] flex flex-col justify-center gap-5">
             <h1 class="text-6xl text-center font-black tracking-wide text-shadow-md text-shadow-black/100">TIMELINE</h1>
             <!--Timeline-Content-->
             <div class="relative flex justify-center items-center ">
@@ -33,55 +33,45 @@ onMounted(() => {
 
                     <!--Card-1-->
                     <div
-                        class="group hover:bg-[#ef4444] hover:-translate-y-1 transition duration-600 flex flex-col gap-4 items-center justify-center min-w-4/12 max-h-96 bg-black p-5 shadow-[0px_6px_12px_-2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] rounded-2xl cursor-pointer ">
+                        class="text-white group max-md:min-w-3/5 hover:bg-[#ef4444] hover:-translate-y-1 transition duration-600 flex flex-col gap-4 items-center justify-center min-w-4/12 max-h-96 bg-black p-5 shadow-[0px_6px_12px_-2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] rounded-2xl cursor-pointer">
                         <div
                             class=" group-hover:bg-black group-hover:text-white transition duration-600 p-2 shadow-[2px_2px_2px_2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)]  text-center rounded-2xl w-full ">
-                            <h5 class="font-black text-xl">Pendaftaran Peserta</h5>
+                            <h5 class="font-black text-xl max-md:text-lg">Pendaftaran Peserta</h5>
                         </div>
-                        <div class="text-center font-black text-xl">
-                            <p class="text-sm">Gelombang I : 29 Juli – 2 September 2025</p>
-                            <p class="text-sm">Gelombang II : 3 September – 30 Oktober 2025</p>
+                        <div class="text-center font-bold max-md:gap-2 max-md:mt-2 flex flex-col">
+                            <p class="text-sm max-md:text-xs">Gelombang I : 29 Juli – 2 September 2025</p>
+                            <p class="text-sm max-md:text-xs">Gelombang II : 3 September – 30 Oktober 2025</p>
                         </div>
                     </div>
 
                     <!--Card-2-->
                     <div
-                        class=" hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] group flex flex-col justify-center min-w-3/12  max-w-3/12 bg-black p-5 gap-4 shadow-[0px_6px_12px_-2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] rounded-2xl cursor-pointer transition duration-600 hover:bg-[#ef4444] hover:-translate-y-1">
+                        class="text-white hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] group flex flex-col justify-center min-w-3/12  max-md:min-w-2/5  bg-black p-5 gap-4 shadow-[0px_6px_12px_-2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] rounded-2xl cursor-pointer transition duration-600 hover:bg-[#ef4444] hover:-translate-y-1">
                         <div
                             class="text-center rounded-2xl group-hover:bg-black group-hover:text-white transition duration-600 p-2 shadow-[2px_2px_2px_2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] ">
-                            <h5 class="font-black text-xl">Pengumpulan Karya</h5>
+                            <h5 class="font-black text-xl max-md:text-sm">Pengumpulan Karya & Pengumuman Finalis</h5>
                         </div>
-                        <p class="text-xl font-black text-center">1 November 2025</p>
-                    </div>
-
-                    <!--Card-3-->
-                    <div
-                        class=" hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] group flex flex-col justify-center min-w-3/12 gap-4 max-w-3/12  bg-black p-5 shadow-[0px_6px_12px_-2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] rounded-2xl cursor-pointer transition duration-600 hover:bg-[#ef4444] hover:-translate-y-1">
-                        <div
-                            class="text-center rounded-2xl group-hover:bg-black group-hover:text-white transition duration-600 p-2 shadow-[2px_2px_2px_2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] ">
-                            <h5 class="font-black text-xl">Pengumuman Finalis</h5>
-                        </div>
-                        <p class="text-xl font-black text-center">1 November 2025</p>
+                        <p class="text-sm max-md:text-xs font-bold">1 November 2025</p>
                     </div>
 
                     <!--Card-4-->
                     <div
-                        class=" hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] group flex flex-col justify-center min-w-3/12 gap-4  max-w-3/12  bg-black p-5 shadow-[0px_6px_12px_-2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] rounded-2xl cursor-pointer transition duration-600 hover:bg-[#ef4444] hover:-translate-y-1">
+                        class="text-white max-md:min-w-2/6 hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] group flex flex-col justify-center min-w-3/12 gap-4  max-w-3/12  bg-black p-5 shadow-[0px_6px_12px_-2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] rounded-2xl cursor-pointer transition duration-600 hover:bg-[#ef4444] hover:-translate-y-1">
                         <div
                             class="text-center rounded-2xl group-hover:bg-black group-hover:text-white transition duration-600 p-2 shadow-[2px_2px_2px_2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] ">
-                            <h5 class="font-black text-xl">Technical Meeting</h5>
+                            <h5 class="font-black text-xl max-md:text-sm">Technical Meeting</h5>
                         </div>
-                        <p class="text-xl font-black text-center">13 November 2025</p>
+                        <p class="text-sm max-md:text-xs font-bold">13 November 2025</p>
                     </div>
 
                     <!--Card-5-->
                     <div
-                        class=" hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] group flex flex-col justify-center min-w-3/12 gap-4 max-w-3/12  bg-black p-5 shadow-[0px_6px_12px_-2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] rounded-2xl cursor-pointer transition duration-600 hover:bg-[#ef4444] hover:-translate-y-1">
+                        class="text-white hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] group flex flex-col justify-center min-w-3/12 gap-4 max-w-3/12  bg-black p-5 shadow-[0px_6px_12px_-2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] rounded-2xl cursor-pointer transition duration-600 hover:bg-[#ef4444] hover:-translate-y-1">
                         <div
                             class="text-center rounded-2xl group-hover:bg-black group-hover:text-white transition duration-600 p-2 shadow-[2px_2px_2px_2px_rgb(239_68_68/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] ">
-                            <h5 class="font-black text-xl">Final</h5>
+                            <h5 class="font-black text-xl max-md:text-sm">Final</h5>
                         </div>
-                        <p class="text-xl font-black text-center">22 November 2025</p>
+                        <p class="text-sm max-md:text-xs font-bold">22 November 2025</p>
                     </div>
 
                 </div>

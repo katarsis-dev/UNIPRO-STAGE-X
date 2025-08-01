@@ -1,5 +1,5 @@
 <template>
-    <div id="get_started_section" class="mt-10 relative w-full h-[400px] flex justify-center items-center ">
+    <div id="get_started_section" class="text-white mt-10 relative w-full h-[400px] flex justify-center items-center ">
         <div
             class="bg-[url(../src/assets/hero-1.jpg)] bg-center bg-cover bg-no-repeat absolute opacity-40 grayscale-50 w-full h-full z-5">
         </div>

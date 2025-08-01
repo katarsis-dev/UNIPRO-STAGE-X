@@ -1,7 +1,7 @@
 <template>
     <div class="w-full p-4 bg-black rounded-t-2xl flex justify-center items-center ">
         <div class="flex justify-center items-start container max-w-[1440px] flex-col gap-2">
-            <section class="w-full flex justify-between p-4 ">
+            <section class="w-full flex justify-between p-4 text-white">
                 <div class="flex flex-col gap-8 max-w-2/5 ">
                     <div class="flex items-center gap-4">
                         <div class="relative w-[100px] flex justify-center overflow-hidden ">

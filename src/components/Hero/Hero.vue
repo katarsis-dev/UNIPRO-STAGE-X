@@ -1,8 +1,9 @@
 <template>
-  <div id="hero-section" class="w-full h-dvh flex justify-center items-center">
-    <div class="flex justify-between relative content-center items-center w-full overflow-hidden h-full">
+  <div id="hero-section" class="w-full h-[100vh] flex justify-center items-center">
+    <div
+      class="flex justify-between text-white text-center relative content-center items-center w-full overflow-hidden h-full gap-20 max-lg:mt-10">
       <div
-        class="h-[80dvh] p-10 min-w-4xl absolute m-auto top-20 bottom-0 -left-200 bg-[#27272A] rounded-br-2xl rounded-tr-2xl shadow-lg shadow-black -skew-x-12 z-10">
+        class="h-[80vh] p-10 min-w-4xl absolute m-auto top-20 bottom-0 -left-200 max-lg:-left-210 bg-[#27272A] rounded-br-2xl rounded-tr-2xl shadow-lg shadow-black -skew-x-12 z-10">
       </div>
 
       <div
@@ -15,8 +16,8 @@
         </div>
 
         <div
-          class="flex justify-center flex-col w-full h-full items-center absolute z-20 group-hover:scale-120 transition duration-400">
-          <h1 class="font-black text-white-400 text-8xl">UNIPRO STAGE X</h1>
+          class="flex justify-center flex-col w-full h-full items-center absolute z-20 text-white group-hover:scale-120 transition duration-400">
+          <h1 class="font-black text-white-400 text-8xl max-lg:text-6xl">UNIPRO STAGE X</h1>
           <p class="p-2 rounded-xl w-2/4 text-shadow-2xs text-shadow-black text-center text-xs">
             UNIPRO adalah Lomba tahunan yang diselenggarakan oleh organisasi HIMPUNAN MAHASISWA SISTEM INFORMASI
             UNIVERSITAS PGRI KANJURUHAN MALANG
@@ -29,7 +30,7 @@
       </div>
 
       <div
-        class="h-[80dvh] p-10 absolute min-w-4xl m-auto top-20 bottom-0  -right-200 bg-[#27272A] rounded-bl-2xl rounded-tl-2xl shadow-lg shadow-black -skew-x-12 z-10">
+        class="h-[80vh] p-10 absolute min-w-4xl m-auto top-20 bottom-0  -right-200 max-lg:-right-210 bg-[#27272A] rounded-bl-2xl rounded-tl-2xl shadow-lg shadow-black -skew-x-12 z-10">
       </div>
     </div>
   </div>

@@ -42,7 +42,8 @@ onMounted(() => {
         <div class="flex justify-center items-center container max-w-[1440px] flex-col gap-10">
             <h3 class="font-black text-4xl">Frequently Asked Question</h3>
             <div class="w-4/5 flex flex-col justify-center items-center gap-5">
-                <div class="w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                <div
+                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-[#000]">
                         <h5 class="font-bold">Apa itu UNIPRO?</h5>
                         <button class="p-3 bg-[#be3232] rounded-2xl cursor-pointer faq-btn"></button>
@@ -59,7 +60,8 @@ onMounted(() => {
                         </p>
                     </div>
                 </div>
-                <div class="w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                <div
+                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">Siapa saja yang boleh ikut lomba ini?</h5>
                         <button class="p-3 bg-[#be3232] rounded-2xl cursor-pointer faq-btn"></button>
@@ -73,7 +75,8 @@ onMounted(() => {
                         </p>
                     </div>
                 </div>
-                <div class="w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                <div
+                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">
                             Apakah lomba ini dilakukan secara online atau offline?
@@ -90,7 +93,8 @@ onMounted(() => {
                         </p>
                     </div>
                 </div>
-                <div class="w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                <div
+                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">
                             Apakah setiap sekolah boleh mendaftarkan lebih dari satu tim?
@@ -108,7 +112,8 @@ onMounted(() => {
                         </p>
                     </div>
                 </div>
-                <div class="w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                <div
+                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">Berapa biaya pendaftaran lomba ?</h5>
                         <button class="p-3 bg-[#be3232] rounded-2xl cursor-pointer faq-btn"></button>
@@ -121,7 +126,8 @@ onMounted(() => {
                         </p>
                     </div>
                 </div>
-                <div class="w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                <div
+                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">Dimana Lokasi Final ?</h5>
                         <button class="p-3 bg-[#be3232] rounded-2xl cursor-pointer faq-btn"></button>
