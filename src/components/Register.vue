@@ -3,7 +3,7 @@
         <div class="w-[95%] h-[95%] flex ">
             <div class="bg-[#e4e4e4] h-full w-[50%] flex items-start justify-center">
                 <div class="w-full border border-amber-500 p-10">
-                    <h2>Register</h2>
+                   
                 </div>
             </div>
             <div class="bg-[#962020] relative h-full w-[50%] flex items-center justify-center">
