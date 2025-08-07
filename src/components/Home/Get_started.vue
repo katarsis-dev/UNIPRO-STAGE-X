@@ -9,16 +9,15 @@
 
         <div class="relative z-7 container w-[90%] flex flex-col justify-center items-center gap-5 text-center">
             <h2 class="font-black text-4xl">🚀 Show Your Skill, Push the Limit!</h2>
-            <p>Its better register now than center-ing ur div buddy!</p>
-            <div class="flex gap-10">
+            <div class="flex gap-10 max-[390px]:flex-col max-[390px]:mt-5 max-[390px]:gap-5">
                 <router-link to="/register">
                     <button
-                        class="p-3 px-10 bg-white text-red-700 font-semibold rounded-xl shadow hover:bg-red-100 hover:text-red-800 transition duration-300 cursor-pointer">Register
+                        class="p-3 px-10 bg-white max-[390px]:w-full text-red-700 font-semibold rounded-xl shadow hover:bg-red-100 hover:text-red-800 transition duration-300 cursor-pointer">Register
                         Competition</button>
                 </router-link>
                 <router-link to="/work_submition">
                     <button
-                        class="p-3 px-10 bg-red-700 text-white font-semibold rounded-xl shadow hover:bg-red-800 transition duration-300 cursor-pointer">Submit
+                        class="p-3 px-10 bg-red-700 text-white max-[390px]:w-full font-semibold rounded-xl shadow hover:bg-red-800 transition duration-300 cursor-pointer">Submit
                         Your
                         Work</button>
                 </router-link>

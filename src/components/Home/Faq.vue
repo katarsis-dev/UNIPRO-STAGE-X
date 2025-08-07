@@ -44,7 +44,7 @@ onMounted(() => {
         </div>
 
         <div class="flex justify-center items-center container max-w-[1440px] flex-col gap-10 relative z-3">
-            <h3 class="font-black text-4xl text-white">Frequently Asked Question</h3>
+            <h3 class="font-black text-4xl text-white text-center">Frequently Asked Question</h3>
             <div class="w-4/5 flex flex-col justify-center items-center gap-5">
                 <div
                     class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">

@@ -21,10 +21,10 @@ onMounted(() => {
   })
   
   window.addEventListener("resize", () => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth < 768) {
       navigation.value.classList.remove("flex")
       navigation.value.classList.add("hidden")
-    } else if (window.innerWidth > 768) {
+    } else if (window.innerWidth >= 768) {
       navigation.value.classList.remove("hidden")
       navigation.value.classList.add("flex")
     }
