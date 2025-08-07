@@ -22,7 +22,7 @@ onMounted(() => {
     <div id="timeline-section" class="w-full text-center pt-10 pb-10 flex justify-center items-center  bg-[#0c0c0d]">
         <!--Container-content-->
         <div class="  w-[90%] flex flex-col justify-center gap-5">
-            <h1 class="text-6xl text-center font-black tracking-wide text-shadow-md text-shadow-black/100">TIMELINE</h1>
+            <h1 class="text-4xl text-center font-black tracking-wide text-shadow-md text-shadow-black/100 text-white">TIMELINE</h1>
             <!--Timeline-Content-->
             <div class="relative flex justify-center items-center ">
                 <!--Line Behind Card-->

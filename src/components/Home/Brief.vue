@@ -1,6 +1,13 @@
 <template>
-    <div id="brief_section" class="w-full pb-20 pt-20 flex justify-center items-center">
-        <div class="w-[90%] flex flex-col justify-center gap-7 text-white">
+    <div id="brief_section" class="w-full pb-20 pt-20 flex relative justify-center items-center overflow-hidden">
+        <div class="absolute flex z-5 bg-gradient-to-t from-red-500 via-red-900 to-[#18181B] opacity-10 w-full h-full">
+        </div>
+        <div
+            class="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+        </div>
+
+
+        <div class="w-[90%] flex flex-col justify-center gap-7 text-white relative z-7">
             <div class="flex flex-col justify-between max-md:text-center">
                 <h1 class="font-black text-4xl tracking-wide">CALLING ALL STUDENTS INNOVATORS </h1>
                 <div class="flex justify-between items-center-safe max-md:flex-col max-md:mt-5 max-md:gap-5">
@@ -15,8 +22,8 @@
                 </div>
             </div>
 
-            <div>
-                <img src="/src/assets/hero-1.jpg" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-60"
+            <div class="shadow-lg shadow-black rounded-4xl">
+                <img src="/src/assets/hero-1.jpg" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-80"
                     alt="">
             </div>
         </div>

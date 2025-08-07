@@ -3,14 +3,28 @@ import { onMounted, useTemplateRef } from 'vue';
 
 
 const navigation = useTemplateRef("nav");
+const nav_btn = useTemplateRef("navbar_btn");
+const black_bg = useTemplateRef("bg-black-transparent");
 onMounted(() => {
+  nav_btn.value.addEventListener("click", () => {
+    if (navigation.value.classList.contains("max-md:hidden")){
+      navigation.value.classList.remove("max-md:hidden")
+      navigation.value.classList.add("max-md:flex")
+      black_bg.value.classList.remove("hidden")
+      black_bg.value.classList.add("inline_block")
+    } else {
+      navigation.value.classList.add("max-md:hidden")
+      navigation.value.classList.remove("max-md:flex")
+      black_bg.value.classList.remove("inline_block")
+      black_bg.value.classList.add("hidden")
+    }
+  })
   
-
   window.addEventListener("resize", () => {
-    if(window.innerWidth <= 768){
+    if (window.innerWidth <= 768) {
       navigation.value.classList.remove("flex")
       navigation.value.classList.add("hidden")
-    } else if (window.innerWidth > 768){
+    } else if (window.innerWidth > 768) {
       navigation.value.classList.remove("hidden")
       navigation.value.classList.add("flex")
     }
@@ -20,13 +34,26 @@ onMounted(() => {
 </script>
 
 <template>
-  <nav class="w-full flex items-center justify-center align-middle relative">
+  <div ref="bg-black-transparent" class="fixed z-20 hidden bg-[rgba(0_0_0/0.5)] left-0 bottom-0 top-0 right-0 "></div>
+
+  <nav class="w-[100%] flex items-center justify-center fixed z-50">
+
     <div
-      class=" w-[90%] inset-shadow-2xs  border-4 border-t-0 border-[#262626] fixed top-0 m-0 z-50 flex flex-nowrap justify-between shadow-black shadow-2xl rounded-b-3xl pl-4 pr-4 bg-black content-center min-w-[750px]">
+      class="w-[90%]  max-w-[1360px] inset-shadow-2xs border-4 border-t-0 border-[#262626] m-0  flex flex-nowrap justify-between shadow-black shadow-2xl rounded-b-3xl pl-4 pr-4 bg-black content-center">
       <router-link to="/">
         <img src="../assets/logo.png" alt="" class="w-[100px] cursor-pointer">
       </router-link>
-      <div class="flex flex-row flex-nowrap items-center min-w-2/4 justify-between" ref="nav">
+      <div class="min-md:hidden flex items-center">
+        <button ref="navbar_btn"
+          class="py-6 px-7 rounded-xl bg-white cursor-pointer relative flex flex-col items-center ">
+          <div class="absolute border-2 border-black w-[60%] rounded-2xl top-3"></div>
+          <div class="absolute border-2 border-black w-[60%] rounded-2xl top-5.5"></div>
+          <div class="absolute border-2 border-black w-[60%]  rounded-2xl bottom-3"></div>
+        </button>
+      </div>
+      <div
+        class="gap-5 flex flex-row flex-nowrap items-center min-w-2/4 justify-between max-md:absolute max-md:-z-10 max-md:flex-col max-md:max-w-[650px] max-md:max-h  -dvh max-md:w-[85%] max-md:overflow-auto max-md:hidden max-md:top-12  max-md:p-10 max-md:items-stretch max-md:gap-6 max-md:bg-[#000] max-md:border-3 max-md:border-[#262626] rounded-b-3xl"
+        ref="nav">
         <button
           class="focus:outline-2 text-white focus:outline-offset-2 focus:outline-white pt-2 pb-2 pl-3 pr-3 cursor-pointer font-bold hover:bg-white hover:text-black rounded-3xl duration-200 ease-in-out">
           About Event
@@ -43,15 +70,19 @@ onMounted(() => {
           class="focus:outline-2 text-white focus:outline-offset-2 focus:outline-white pt-2 pb-2 pl-3 pr-3 cursor-pointer font-bold hover:bg-white hover:text-black rounded-3xl duration-200 ease-in-out">
           FAQ
         </button>
-
-      </div>
-      <div class="flex items-center">
         <router-link to="/register">
           <button
-            class="px-5 py-2 cursor-pointer font-semibold bg-white shadow-sm text-black hover:bg-red-100 rounded-xl duration-200 ease-in-out">
+            class="px-5 py-2 max-md:w-full cursor-pointer font-semibold bg-white shadow-sm text-black hover:bg-red-100 rounded-xl duration-200 ease-in-out">
             Register
           </button>
         </router-link>
+        <router-link to="/work_submition">
+          <button
+            class="px-5 py-2 max-md:w-full cursor-pointer font-semibold bg-red-700 text-white shadow-sm hover:text-black hover:bg-red-100 rounded-xl duration-200 ease-in-out">
+            Submit
+          </button>
+        </router-link>
+
       </div>
     </div>
   </nav>
