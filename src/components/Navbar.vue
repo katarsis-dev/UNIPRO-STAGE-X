@@ -52,7 +52,7 @@ onMounted(() => {
         </button>
       </div>
       <div
-        class="gap-5 flex flex-row flex-nowrap items-center min-w-2/4 justify-between max-md:absolute max-md:-z-10 max-md:flex-col max-md:max-w-[650px] max-md:max-h  -dvh max-md:w-[85%] max-md:overflow-auto max-md:hidden max-md:top-12  max-md:p-10 max-md:items-stretch max-md:gap-6 max-md:bg-[#000] max-md:border-3 max-md:border-[#262626] rounded-b-3xl"
+        class="gap-5 flex flex-row flex-nowrap items-center min-w-2/4 justify-between max-md:absolute max-md:-z-10 max-md:flex-col max-md:max-w-[650px] max-md:max-h-dvh max-md:w-[85%] max-md:overflow-auto max-md:hidden max-md:top-12  max-md:p-10 max-md:items-stretch max-md:gap-6 max-md:bg-[#000] max-md:border-3 max-md:border-[#262626] rounded-b-3xl"
         ref="nav">
         <button
           class="focus:outline-2 text-white focus:outline-offset-2 focus:outline-white pt-2 pb-2 pl-3 pr-3 cursor-pointer font-bold hover:bg-white hover:text-black rounded-3xl duration-200 ease-in-out">
