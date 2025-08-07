@@ -7,10 +7,11 @@
         </div>
 
         <div class="w-[90%] mt-20 h-full flex flex-col justify-center items-center gap-15 relative z-3">
-            <h2 class="text-4xl text-center font-black tracking-wide text-shadow-md text-shadow-black/100 text-white">ALUR
+            <h2 class="text-4xl text-center font-black tracking-wide text-shadow-md text-shadow-black/100 text-white">
+                ALUR
                 PENDAFTARAN</h2>
             <div class="w-full flex justify-center items-center flex-wrap">
-                <div class="flex gap-8 flex-col w-7/12">
+                <div class="flex gap-8 flex-col w-7/12 max-sm:w-10/12">
 
                     <!--Card-1-->
                     <div class="p-1.5 bg-[#494949] rounded-xl cursor-pointer shadow-[0px_8px_24px_rgb(0_0_0/0.6)] ">

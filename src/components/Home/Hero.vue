@@ -9,9 +9,10 @@
 
     <div
       class="flex justify-between text-white text-center relative content-center items-center w-full overflow-hidden h-full gap-20 max-lg:mt-10 ">
-      <div
-        class="h-[80vh] max-sm:hidden p-10 min-w-4xl absolute m-auto top-20 bottom-0 -left-200 max-lg:-left-210 bg-[#27272A] rounded-br-2xl rounded-tr-2xl shadow-lg shadow-black -skew-x-12 z-10">
-      </div>
+
+        <div 
+          class="h-[80vh] max-sm:hidden p-10 min-w-4xl absolute m-auto top-20 bottom-0 -left-200 max-lg:-left-210 bg-[#27272A] rounded-br-2xl rounded-tr-2xl shadow-lg shadow-black -skew-x-12 z-10">
+        </div>
 
       <div
         class=" w-[80%] max-sm:w-[95%] max-sm:skew-x-0  h-[80dvh] relative m-auto left-0 right-0 top-8 bottom-0 bg-[#161616] rounded-2xl shadow-lg shadow-black -skew-x-12 overflow-hidden group z-10">
@@ -25,7 +26,7 @@
         <div
           class="flex justify-center flex-col w-full h-full items-center absolute z-20 text-white group-hover:scale-120 transition duration-400">
           <h1 class="font-black text-white-400 text-8xl max-lg:text-6xl">UNIPRO STAGE X</h1>
-          <p class="p-2 rounded-xl w-2/4 text-shadow-2xs text-shadow-black text-center text-xs">
+          <p class="p-2 rounded-xl w-2/4 text-shadow-2xs text-shadow-black text-center text-xs max-md:w-4/5 ">
             UNIPRO adalah Lomba tahunan yang diselenggarakan oleh organisasi HIMPUNAN MAHASISWA SISTEM INFORMASI
             UNIVERSITAS PGRI KANJURUHAN MALANG
           </p>
