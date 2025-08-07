@@ -38,9 +38,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <div id="faq_section" class="w-full pb-10 pt-10 flex justify-center items-center">
-        <div class="flex justify-center items-center container max-w-[1440px] flex-col gap-10">
-            <h3 class="font-black text-4xl">Frequently Asked Question</h3>
+    <div id="faq_section" class="w-full pb-30 pt-10 flex justify-center items-center relative">
+        <div
+            class="absolute z-2 inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+        </div>
+
+        <div class="flex justify-center items-center container max-w-[1440px] flex-col gap-10 relative z-3">
+            <h3 class="font-black text-4xl text-white">Frequently Asked Question</h3>
             <div class="w-4/5 flex flex-col justify-center items-center gap-5">
                 <div
                     class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
