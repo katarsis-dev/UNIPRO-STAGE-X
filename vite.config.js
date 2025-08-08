@@ -6,4 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base : "/UNIPRO-STAGE-X/",
   plugins: [vue(), tailwindcss()],
+  optimizeDeps : {
+    include:['gsap']
+  }
 });

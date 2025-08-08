@@ -1,3 +1,32 @@
+<script setup>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    const skema_container = document.getElementsByClassName("skema_container")[0]
+    const skema_card = document.getElementsByClassName("skema_card")
+    const tl_skema = gsap.timeline({
+        scrollTrigger: {
+            trigger: skema_container,
+            start: "top 80%",
+            toggleActions: "play reset play reset"
+        },
+    })
+
+    for (let index = 0; index < skema_card.length; index++) {
+        tl_skema.from(skema_card[index], ({
+            opacity:0,
+            duration: 0.5,
+            ease:"linear"
+        }))        
+    }
+
+});
+
+</script>
+
 <template>
     <div class="w-full relative flex justify-center pb-30">
         <div class="absolute z-2 top-0 w-full h-full bg-gradient-to-b from-red-500 via-red-900 to-[#18181B] opacity-30">
@@ -10,11 +39,12 @@
             <h2 class="text-4xl text-center font-black tracking-wide text-shadow-md text-shadow-black/100 text-white">
                 ALUR
                 PENDAFTARAN</h2>
-            <div class="w-full flex justify-center items-center flex-wrap">
+            <div class="skema_container w-full flex justify-center items-center flex-wrap">
                 <div class="flex gap-8 flex-col w-7/12 max-sm:w-10/12">
 
                     <!--Card-1-->
-                    <div class="p-1.5 bg-[#494949] rounded-xl cursor-pointer shadow-[0px_8px_24px_rgb(0_0_0/0.6)] ">
+                    <div
+                        class="skema_card p-1.5 bg-[#494949] rounded-xl cursor-pointer shadow-[0px_8px_24px_rgb(0_0_0/0.6)] ">
                         <div class="flex flex-col justify-center items-center p-4 rounded-xl bg-black gap-4 text-white">
                             <div class="rounded-md w-full text-center p-2 bg-[#922121]">
                                 <h3 class="text-xl font-semibold">Pendaftaran Online</h3>
@@ -26,7 +56,8 @@
                     </div>
 
                     <!--Card-2-->
-                    <div class="p-1.5  bg-[#494949] rounded-xl cursor-pointer shadow-[0px_8px_24px_rgb(0_0_0/0.6)]">
+                    <div
+                        class="skema_card p-1.5  bg-[#494949] rounded-xl cursor-pointer shadow-[0px_8px_24px_rgb(0_0_0/0.6)]">
                         <div class="flex flex-col justify-center items-center p-4 rounded-xl bg-black gap-4 text-white">
                             <div class="rounded-md w-full text-center p-2 bg-[#922121]">
                                 <h3 class="text-xl font-semibold">Pembayaran</h3>
@@ -39,7 +70,8 @@
                         </div>
                     </div>
                     <!--Card-3-->
-                    <div class="p-1.5 bg-[#494949] rounded-xl cursor-pointer shadow-[0px_8px_24px_rgb(0_0_0/0.6)]">
+                    <div
+                        class="skema_card p-1.5 bg-[#494949] rounded-xl cursor-pointer shadow-[0px_8px_24px_rgb(0_0_0/0.6)]">
                         <div class="flex flex-col justify-center items-center p-4 rounded-xl bg-black gap-4 text-white">
                             <div class="rounded-md w-full text-center p-2 bg-[#922121]">
                                 <h3 class="text-xl font-semibold">Konfirmasi Pembayaran:</h3>

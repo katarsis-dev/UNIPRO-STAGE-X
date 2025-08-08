@@ -1,5 +1,37 @@
+<script setup>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { onMounted } from 'vue';
+onMounted(() => {
+    const brief_component = document.getElementsByClassName("brief")
+    const brief_container = document.getElementsByClassName("brief_container")[0]
+    gsap.registerPlugin(ScrollTrigger)
+    const tl_brief = gsap.timeline({
+        scrollTrigger: {
+            trigger: brief_container,
+            start: "top 80%",
+            toggleActions: "play reset play reset"
+        },
+    })
+
+    tl_brief.from(brief_component[0], ({
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        ease: "linear"
+    }),0)
+    .from(brief_component[1], ({
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        ease: "linear"
+    }))
+});
+</script>
+
+
 <template>
-    <div id="brief_section" class="w-full pb-20 pt-20 flex relative justify-center items-center overflow-hidden">
+    <div id="brief_section" class="w-full h-dvh  flex relative justify-center items-center overflow-hidden">
         <div class="absolute flex z-5 bg-gradient-to-t from-red-500 via-red-900 to-[#18181B] opacity-10 w-full h-full">
         </div>
         <div
@@ -7,8 +39,8 @@
         </div>
 
 
-        <div class="w-[90%] flex flex-col justify-center gap-7 text-white relative z-7">
-            <div class="flex flex-col justify-between max-md:text-center">
+        <div class="brief_container w-[90%] flex flex-col justify-center gap-7 text-white relative z-7">
+            <div class="brief   flex flex-col justify-between max-md:text-center">
                 <h1 class="font-black text-4xl tracking-wide">CALLING ALL STUDENTS INNOVATORS </h1>
                 <div class="flex justify-between items-center-safe max-md:flex-col max-md:mt-5 max-md:gap-5">
                     <p class="text-sm font-normal text-[#A1A1AA] w-2xl max-md:w-full">Lomba UNIPRO STAGE X yang
@@ -22,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="shadow-lg shadow-black rounded-4xl">
+            <div class="brief shadow-lg shadow-black rounded-4xl">
                 <img src="/src/assets/hero-1.jpg" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-80"
                     alt="">
             </div>

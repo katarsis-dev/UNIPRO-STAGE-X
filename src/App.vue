@@ -1,23 +1,6 @@
 <script setup>
-import Aos from "aos";
-import 'aos/dist/aos.css';
-import { onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
 
-const route = useRoute();
 
-onMounted(() => {
-  Aos.init({
-    duration: 800,
-    once: false,
-    startEvent: 'DOMContentLoaded',
-    easing:"ease",
-    mirror:false
-  })
-})
-watch(() => route.fullPath, () => {
-  Aos.refresh()
-})
 
 </script>
 
