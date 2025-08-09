@@ -9,8 +9,8 @@ onMounted(() => {
     const tl_brief = gsap.timeline({
         scrollTrigger: {
             trigger: brief_container,
-            start: "top 80%",
-            toggleActions: "play reset play reset"
+            start: "top center",
+            toggleActions: "play reverse play reset"
         },
     })
 
@@ -31,7 +31,7 @@ onMounted(() => {
 
 
 <template>
-    <div id="brief_section" class="w-full h-dvh  flex relative justify-center items-center overflow-hidden">
+    <div id="brief_section" class="w-full py-30 flex relative justify-center items-center overflow-hidden">
         <div class="absolute flex z-5 bg-gradient-to-t from-red-500 via-red-900 to-[#18181B] opacity-10 w-full h-full">
         </div>
         <div

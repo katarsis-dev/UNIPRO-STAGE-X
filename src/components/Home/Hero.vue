@@ -12,19 +12,20 @@ onMounted(() => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: hero_banner,
-      start: "center bottom",
+      start: "top center",
       toggleActions: "play reset play reset"
+
     },
   })
 
   tl.from(hero_side[0],{
     x: -100,
-    duration: 0.4,
+    duration: 0.6,
     ease: "linear"
   },0)
   tl.from(hero_side[1], {
     x: 100,
-    duration: 0.4,
+    duration: 0.6,
     ease: "linear"
   },0)
 
@@ -39,7 +40,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="hero-section" class="w-full h-[100vh] flex justify-center items-center relative">
+  <div id="hero_section" class="w-full h-[100dvh] flex justify-center items-center relative z-5">
     <div class="absolute z-8 top-0 w-full h-full bg-gradient-to-b from-red-500 via-red-900 to-[#18181B] opacity-30">
     </div>
     <div
