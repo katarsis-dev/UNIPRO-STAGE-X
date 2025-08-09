@@ -44,7 +44,7 @@ onMounted(() => {
     const tl_faq = gsap.timeline({
         scrollTrigger: {
             trigger: faq_box_container,
-            start: "top center",
+            start: "top 80%",
             toggleActions: "play reverse play reset"
         },
     })

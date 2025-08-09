@@ -5,6 +5,6 @@ import viteCompression from "vite-plugin-compression";
 import viteImagemin from "vite-plugin-imagemin";
 
 export default defineConfig({
-  base : "/UNIPRO-STAGE-X/",
+  base : "/",
   plugins: [vue(), tailwindcss()],
 });
