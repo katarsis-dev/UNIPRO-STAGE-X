@@ -1,9 +1,14 @@
 <script setup>
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import { onMounted } from "vue";
 
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger)
     const faq_btn = document.getElementsByClassName("faq-btn");
     const faq_desc = document.getElementsByClassName("faq_desc");
+    const faq_box = document.getElementsByClassName("faq_box");
+    const faq_box_container = document.getElementsByClassName("faq_box_container")[0]
     let arr_btn = [];
     let faq_content = [];
     for (let index = 0; index < faq_btn.length; index++) {
@@ -34,20 +39,41 @@ onMounted(() => {
             }
         });
     });
+    
+
+    const tl_faq = gsap.timeline({
+        scrollTrigger: {
+            trigger: faq_box_container,
+            start: "top center",
+            toggleActions: "play reverse play reset"
+        },
+    })
+
+    for (let index = 0; index < faq_box.length; index++) {
+        tl_faq.from(faq_box[index],({
+            y: 20,
+            opacity: 0,
+            duration: 0.5,
+            ease: "linear"
+        }))
+    }
+    
+
 });
 </script>
 
 <template>
-    <div id="faq_section" class="w-full pb-30 pt-10 flex justify-center items-center relative">
+
+    <div id="faq_section" class="w-full flex justify-center items-center relative py-40">
         <div
             class="absolute z-2 inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
         </div>
 
         <div class="flex justify-center items-center container max-w-[1440px] flex-col gap-10 relative z-3">
             <h3 class="font-black text-4xl text-white text-center">Frequently Asked Question</h3>
-            <div class="w-4/5 flex flex-col justify-center items-center gap-5">
+            <div class="faq_box_container w-4/5 flex flex-col justify-center items-center gap-5">
                 <div
-                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                    class="faq_box text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-[#000]">
                         <h5 class="font-bold">Apa itu UNIPRO?</h5>
                         <button class="p-3 bg-[#be3232] rounded-2xl cursor-pointer faq-btn"></button>
@@ -65,7 +91,7 @@ onMounted(() => {
                     </div>
                 </div>
                 <div
-                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                    class="faq_box text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">Siapa saja yang boleh ikut lomba ini?</h5>
                         <button class="p-3 bg-[#be3232] rounded-2xl cursor-pointer faq-btn"></button>
@@ -80,7 +106,7 @@ onMounted(() => {
                     </div>
                 </div>
                 <div
-                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                    class="faq_box text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">
                             Apakah lomba ini dilakukan secara online atau offline?
@@ -98,7 +124,7 @@ onMounted(() => {
                     </div>
                 </div>
                 <div
-                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                    class="faq_box text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">
                             Apakah setiap sekolah boleh mendaftarkan lebih dari satu tim?
@@ -117,7 +143,7 @@ onMounted(() => {
                     </div>
                 </div>
                 <div
-                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                    class="faq_box text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">Berapa biaya pendaftaran lomba ?</h5>
                         <button class="p-3 bg-[#be3232] rounded-2xl cursor-pointer faq-btn"></button>
@@ -131,7 +157,7 @@ onMounted(() => {
                     </div>
                 </div>
                 <div
-                    class="text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
+                    class="faq_box text-white w-full flex flex-col items-center shadow-[0px_8px_24px_rgb(239_68_68/0.2)] rounded-2xl">
                     <div class="p-7 w-full flex justify-between items-center bg-black">
                         <h5 class="font-bold">Dimana Lokasi Final ?</h5>
                         <button class="p-3 bg-[#be3232] rounded-2xl cursor-pointer faq-btn"></button>
