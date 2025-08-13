@@ -1,17 +1,50 @@
 <script setup>
 import gsap from 'gsap';
-import { onBeforeMount, onMounted, useTemplateRef } from 'vue';
+import { ref, onMounted, useTemplateRef, reactive } from 'vue';
+import { supabase } from '../lib/supabaseClient';
+
+const form_area = useTemplateRef("form_register")
 
 
+const uploaded_file = ref("");
+const loading = ref(false)
 
-const input = useTemplateRef("form_register")
+
+const fileHandler = (ev) => {
+    let file = ev.target.value
+    uploaded_file.value = file
+}
+
+const form_data = reactive({
+    nama_tim : "",
+    email_tim : "",
+    contact_number: "",
+    anggota_1: "",
+    anggota_2: "",
+    anggota_3: "",
+    asal_sekolah: "",
+})
 
 
+async function submitForm() {
+    // let member = [form_data.anggota_1, form_data.anggota_2, form_data.anggota_3]
+
+    // const {error} = await supabase.from("participant").insert({
+    //     nama_tim : form_data.nama_tim,
+    //     members : member.filter(data => data != "" | data.length != 0),
+    //     email : form_data.email_tim,
+    //     school_name : form_data.asal_sekolah,
+    //     contact_number : form_data.contact_number,
+        
+    // })
+
+    console.log(uploaded_file);
+    
+}
 onMounted(() => {
 
 
-
-    const input_register = Array.from(input.value.elements).map(data => {
+    const input_register = Array.from(form_area.value.elements).map(data => {
         if (data.tagName == "INPUT" | data.tagName != "BUTTON"){
             return data
         }
@@ -50,7 +83,8 @@ onMounted(() => {
         <div
             class="absolute z-1 inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
         </div>
-        <div class="absolute z-1 top-0 w-full h-full bg-gradient-to-b from-black-500 via-gray-900 to-[#18181B] opacity-30">
+        <div
+            class="absolute z-1 top-0 w-full h-full bg-gradient-to-b from-black-500 via-gray-900 to-[#18181B] opacity-30">
         </div>
 
         <div class="w-[95%] h-[95%] flex  max-md:flex-col-reverse max-md:items-center p-4 relative z-2">
@@ -61,26 +95,29 @@ onMounted(() => {
                     <h1 class="text-[#D73F3F] font-bold text-4xl">REGISTER</h1>
 
                     <form action="" class="w-full mt-2 flex flex-col gap-8 justify-center max-md:items-center "
-                        ref="form_register">
+                        ref="form_register" @submit.prevent="submitForm" >
 
                         <!--Input nama tim-->
                         <div class="flex flex-col w-[70%] max-md:w-full">
                             <label for="nama_tim" class="text-md font-semibold text-black">Nama Tim</label>
-                            <input type="text" class="border-b-2 border-red-500 rounded-sm p-2  text-black"
+                            <input type="text" v-model="form_data.nama_tim"
+                                class="border-b-2 border-red-500 rounded-sm p-2  text-black"
                                 placeholder="Masukan Nama Tim" name="nama_tim" required>
                         </div>
 
                         <!--Input email-->
                         <div class="flex flex-col w-[70%] max-md:w-full">
                             <label for="email" class="text-md font-semibold text-black">Email</label>
-                            <input type="email" class="border-b-2 border-red-500 rounded-sm p-2  text-black"
+                            <input type="email" v-model="form_data.email_tim"
+                                class="border-b-2 border-red-500 rounded-sm p-2  text-black"
                                 placeholder="Masukan E-mail Perwakilan Tim" name="email" required>
                         </div>
 
                         <!--Input nomor kontak perwakilan tim-->
                         <div class="flex flex-col w-[70%] max-md:w-full">
                             <label for="nomor_wa" class="text-md font-semibold text-black">Nomor Whats-App</label>
-                            <input type="number" class="border-b-2 border-red-500 rounded-sm p-2  text-black"
+                            <input type="text" v-model="form_data.contact_number"
+                                class="border-b-2 border-red-500 rounded-sm p-2  text-black"
                                 placeholder="Masukan Nomor Perwakilan Tim" name="nomor_wa" required>
                         </div>
 
@@ -90,7 +127,8 @@ onMounted(() => {
                                 <div class="flex flex-col">
                                     <label for="" class="text-md font-semibold text-black">Masukan Nama Anggota
                                         1</label>
-                                    <input type="text" class="border-b-2 border-red-500 rounded-sm p-2  text-black"
+                                    <input type="text" ref="anggota-1_input" v-model="form_data.anggota_1"
+                                        class="border-b-2 border-red-500 rounded-sm p-2  text-black"
                                         placeholder="Nama Anggota" name="" required>
                                 </div>
                             </div>
@@ -98,7 +136,8 @@ onMounted(() => {
                                 <div class="flex flex-col">
                                     <label for="" class="text-md font-semibold text-black">Masukan Nama Anggota
                                         2</label>
-                                    <input type="text" class="border-b-2 border-red-500 rounded-sm p-2  text-black"
+                                    <input type="text" v-model="form_data.anggota_2"
+                                        class="border-b-2 border-red-500 rounded-sm p-2  text-black"
                                         placeholder="Nama Anggota">
                                 </div>
                             </div>
@@ -106,7 +145,8 @@ onMounted(() => {
                                 <div class="flex flex-col">
                                     <label for="" class="text-md font-semibold text-black">Masukan Nama Anggota
                                         3</label>
-                                    <input type="text" class="border-b-2 border-red-500 rounded-sm p-2  text-black"
+                                    <input type="text" v-model="form_data.anggota_3"
+                                        class="border-b-2 border-red-500 rounded-sm p-2  text-black"
                                         placeholder="Nama Anggota">
                                 </div>
                             </div>
@@ -115,12 +155,13 @@ onMounted(() => {
                         <!--Input Bukti Pembayaran-->
                         <div class="flex flex-col w-[70%] max-md:w-full">
                             <label for="" class="text-md font-semibold text-black">Asal Sekolah : </label>
-                            <input type="text" class="border-b-2 border-red-500 rounded-sm p-2  text-black"
-                                placeholder="Asal Sekolah" required>
+                            <input type="text" v-model="form_data.asal_sekolah"
+                                class="border-b-2 border-red-500 rounded-sm p-2  text-black" placeholder="Asal Sekolah"
+                                required>
                         </div>
                         <div class="flex flex-col w-[70%] max-md:w-full">
                             <label for="" class="text-md font-semibold text-black">Bukti Pembayaran : </label>
-                            <input type="file"
+                            <input type="file" @change="fileHandler"
                                 class="cursor-pointer border-b-2 border-red-500 rounded-sm p-2  text-black" required>
                         </div>
                         <button

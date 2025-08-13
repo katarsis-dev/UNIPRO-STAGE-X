@@ -8,6 +8,7 @@ onMounted(() => {
   const hero_side = document.getElementsByClassName("hero_side")
   const hero_banner = document.getElementsByClassName("hero_banner")[0]
   gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(scrollTo)
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -34,7 +35,13 @@ onMounted(() => {
     y:30,
     duration: 1,
   })
-
+  document.getElementsByClassName("start_btn")[0].addEventListener("click", () => {
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: "#get_started_section",
+      ease: "power2.out"
+    });
+  })
   
 });
 </script>
@@ -71,13 +78,10 @@ onMounted(() => {
             UNIPRO adalah Lomba tahunan yang diselenggarakan oleh organisasi HIMPUNAN MAHASISWA SISTEM INFORMASI
             UNIVERSITAS PGRI KANJURUHAN MALANG
           </p>
-          <router-link to="/register">
-
             <button
-              class="cursor-pointer bg-[#B91C1C] pb-3 pt-3 pl-4 pr-4 font-bold rounded-xl mt-2 hover:bg-[#991B1B] shadow-[#1b1b1b] shadow-md">
-              DAFTAR SEKARANG
+              class="start_btn cursor-pointer bg-[#B91C1C] pb-3 pt-3 pl-4 pr-4 font-bold rounded-xl mt-2 hover:bg-[#991B1B] shadow-[#1b1b1b] shadow-md">
+              Mulai Sekarang
             </button>
-          </router-link>
         </div>
       </div>
 

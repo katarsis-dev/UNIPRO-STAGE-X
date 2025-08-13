@@ -22,7 +22,7 @@ onMounted(() => {
     const tl_timeline = gsap.timeline({
         scrollTrigger: {
             trigger: timeline_container,
-            start: "top center",
+            start: "top 90%",
             toggleActions: "play reset play reset"
         },
     })
@@ -42,7 +42,7 @@ onMounted(() => {
 
 <template>
     <!--Container-->
-    <div id="timeline_section" class=" w-full h-dvh bg-[#0c0c0d] flex justify-center items-center ">
+    <div id="timeline_section" class="w-full h-dvh bg-[#0c0c0d] flex justify-center items-center ">
         <div class="w-full text-center py-30 flex justify-center items-center">
             <!--Container-content-->
             <div class="w-[90%] flex flex-col justify-center gap-5 ">

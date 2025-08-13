@@ -22,5 +22,8 @@ build
 *.njsproj
 *.sln
 *.sw?
+.env.development
+.env.production
+.env
 .vscode
 feature.txt
