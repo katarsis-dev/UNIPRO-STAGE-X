@@ -5,14 +5,17 @@ import { supabase } from '../lib/supabaseClient';
 
 const form_area = useTemplateRef("form_register")
 
-
 const uploaded_file = ref("");
-const loading = ref(false)
-
 
 const fileHandler = (ev) => {
-    let file = ev.target.value
-    uploaded_file.value = file
+    if (ev.target.files[0].size > 2000000) {
+        uploaded_file.value = ""
+        ev.target.value = ""
+        alert("Proses Upload bukti pembayaran gagal!,pastikan ukuran file foto dibawah 2MB!")
+        return;
+    }
+    uploaded_file.value = ev.target.files[0];     
+    return;
 }
 
 const form_data = reactive({
@@ -25,25 +28,62 @@ const form_data = reactive({
     asal_sekolah: "",
 })
 
+function formValidation(){
+    if (form_data.nama_tim.trim().length == 0 | form_data.anggota_1.trim().length == 0){
+        alert("Isi nama dengan benar!")
+        return false
+    } else if (!form_data.email_tim.includes("@")){
+        alert("isi Email dengan format yang benar")
+        return false
+    } else if (form_data.contact_number.trim().match(/[0-9]/g) == null){
+        alert("isi nomor telepon dengan format yang benar")
+        return false
+    } else if (form_data.asal_sekolah.trim().length == 0){
+        alert("isi asal sekolah anda dengan benar!")
+        return false
+    }
+    return true 
+}
+
 
 async function submitForm() {
-    // let member = [form_data.anggota_1, form_data.anggota_2, form_data.anggota_3]
+    if(!formValidation()){
+        return;
+    } 
 
-    // const {error} = await supabase.from("participant").insert({
-    //     nama_tim : form_data.nama_tim,
-    //     members : member.filter(data => data != "" | data.length != 0),
-    //     email : form_data.email_tim,
-    //     school_name : form_data.asal_sekolah,
-    //     contact_number : form_data.contact_number,
+    try{
         
-    // })
+        const nameFile = `bukti_pembayaran-${form_data.nama_tim}-${Date.now()}`
+        
+        const {error:uploadedError} = await supabase.storage.from("bukti_pembayaran").upload(nameFile,uploaded_file.value)
 
-    console.log(uploaded_file);
-    
+        let member = [form_data.anggota_1, form_data.anggota_2, form_data.anggota_3]
+
+        
+        const {data} = await supabase.storage.from("bukti_pembayaran").getPublicUrl(nameFile)
+        
+        const { error:insertError } = await supabase.from("participants").insert({
+            team_name: form_data.nama_tim,
+            members: member.filter(data => data.trim().length != 0),
+            email: form_data.email_tim,
+            school_name: form_data.asal_sekolah,
+            contact_number: form_data.contact_number,
+            payment_photo : data.publicUrl,
+        })
+        if (insertError) {
+            throw insertError;
+        } else if (uploadedError) {
+            throw uploadedError;
+        } else {
+            alert("Upload Berhasil")
+        }
+        
+    } catch(error){
+        alert(error.message)
+    }
 }
+
 onMounted(() => {
-
-
     const input_register = Array.from(form_area.value.elements).map(data => {
         if (data.tagName == "INPUT" | data.tagName != "BUTTON"){
             return data
@@ -94,19 +134,20 @@ onMounted(() => {
                     class="w-full h-full px-10 py-20 flex flex-col border justify-center items-start max-md:items-center max-md:gap-5 ">
                     <h1 class="text-[#D73F3F] font-bold text-4xl">REGISTER</h1>
 
-                    <form action="" class="w-full mt-2 flex flex-col gap-8 justify-center max-md:items-center "
-                        ref="form_register" @submit.prevent="submitForm" >
+                    <form action="" class="w-full mt-2 flex flex-col gap-4 justify-center max-md:items-center "
+                        ref="form_register" @submit.prevent="submitForm">
 
                         <!--Input nama tim-->
-                        <div class="flex flex-col w-[70%] max-md:w-full">
+                        <div class="flex flex-col w-[85%] max-md:w-full">
                             <label for="nama_tim" class="text-md font-semibold text-black">Nama Tim</label>
                             <input type="text" v-model="form_data.nama_tim"
                                 class="border-b-2 border-red-500 rounded-sm p-2  text-black"
                                 placeholder="Masukan Nama Tim" name="nama_tim" required>
+
                         </div>
 
                         <!--Input email-->
-                        <div class="flex flex-col w-[70%] max-md:w-full">
+                        <div class="flex flex-col w-[85%] max-md:w-full">
                             <label for="email" class="text-md font-semibold text-black">Email</label>
                             <input type="email" v-model="form_data.email_tim"
                                 class="border-b-2 border-red-500 rounded-sm p-2  text-black"
@@ -114,7 +155,7 @@ onMounted(() => {
                         </div>
 
                         <!--Input nomor kontak perwakilan tim-->
-                        <div class="flex flex-col w-[70%] max-md:w-full">
+                        <div class="flex flex-col w-[85%] max-md:w-full">
                             <label for="nomor_wa" class="text-md font-semibold text-black">Nomor Whats-App</label>
                             <input type="text" v-model="form_data.contact_number"
                                 class="border-b-2 border-red-500 rounded-sm p-2  text-black"
@@ -152,20 +193,24 @@ onMounted(() => {
                             </div>
                         </div>
 
-                        <!--Input Bukti Pembayaran-->
-                        <div class="flex flex-col w-[70%] max-md:w-full">
+                        <div class="flex flex-col w-[85%] max-md:w-full">
                             <label for="" class="text-md font-semibold text-black">Asal Sekolah : </label>
                             <input type="text" v-model="form_data.asal_sekolah"
                                 class="border-b-2 border-red-500 rounded-sm p-2  text-black" placeholder="Asal Sekolah"
                                 required>
                         </div>
-                        <div class="flex flex-col w-[70%] max-md:w-full">
-                            <label for="" class="text-md font-semibold text-black">Bukti Pembayaran : </label>
-                            <input type="file" @change="fileHandler"
-                                class="cursor-pointer border-b-2 border-red-500 rounded-sm p-2  text-black" required>
+
+                        <!--Input Bukti Pembayaran-->
+                        <div class="flex flex-col w-[70%] max-md:w-full ">
+                            <label for="pembayaran_photo" class="text-md font-semibold text-black">Bukti Pembayaran :
+                            </label>
+                            <input type="file" name="pembayaran_photo" @change="fileHandler"
+                                accept="image/jpeg, image/png, image/jpg"
+                                class="cursor-pointer border-b-2 rounded-sm p-2 text-black" placeholder="test"
+                                required>
                         </div>
                         <button
-                            class="submit bg-red-800 w-[70%] max-md:w-full text-white cursor-pointer py-2 px-10 rounded-2xl font-semibold">Submit</button>
+                            class="submit bg-red-800 w-[60%] max-md:w-full text-white cursor-pointer py-2 px-10 rounded-2xl font-semibold">Submit</button>
 
                     </form>
 

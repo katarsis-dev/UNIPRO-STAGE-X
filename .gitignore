@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 build
+checkpoint.txt
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

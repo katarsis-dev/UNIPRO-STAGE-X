@@ -45,7 +45,7 @@ onMounted(() => {
         scrollTrigger: {
             trigger: faq_box_container,
             start: "top 80%",
-            toggleActions: "play reverse play reset"
+            toggleActions: "play play play play"
         },
     })
 

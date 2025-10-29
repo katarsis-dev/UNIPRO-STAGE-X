@@ -1,16 +1,67 @@
 <script setup>
 import gsap from 'gsap';
-import { onBeforeMount, onMounted, useTemplateRef } from 'vue';
-
-
+import { onBeforeMount, onMounted, useTemplateRef, ref, reactive } from 'vue';
+import { supabase } from '../lib/supabaseClient';
 
 const input = useTemplateRef("form_register")
 
+const uploaded_file = ref("")
+const input_repository = useTemplateRef("input_repository")
+const input_file = useTemplateRef("input_file")
+const data_form = reactive({
+    team_name: "",
+})
+
+const fileHandler = (e) => {
+    if (e.target.files.length != 0) {
+        if (e.target.files[0].size > 50000000) {
+            uploaded_file.value = ""
+            e.target.value = ""
+            alert("Proses Upload File Submission Gagal!,pastikan ukuran file foto dibawah 50MB!")
+            return;
+        }
+        uploaded_file.value = e.target.files[0];
+        input_repository.value.required = false
+        return;
+    }
+    input_repository.value.required = true
+}
+const repoHandler = (e) => {
+    if (data_form.repo_link.trim().length != 0) {
+        input_file.value.required = false
+        return;
+    }
+    input_file.value.required = true
+}
+
+
+async function onSubmit(e) {
+    const nameFile = `submission-${data_form.team_name}-${Date.now()}`
+
+    const { error: uploadedError } = await supabase.storage.from("file_submission").upload(nameFile, uploaded_file.value)
+    const { data } = await supabase.storage.from("file_submission").getPublicUrl(nameFile)
+
+    const { error } = await supabase.rpc('handle_submission', {
+        team_name_input: data_form.team_name,
+        link_repo_input: input_repository.value.value,
+        link_file_input: data.publicUrl
+
+    })
+
+    if (error) {
+        if(error.message.includes("duplicate")){
+            alert('Gagal submit: Anda telah melakukan submit sebelumnya, konfirmasi admin jika terjadi kesalahan submit file / link repositori')
+        } else {
+            alert('Gagal submit: '+error.message)
+
+        }
+    } else {
+        alert('Submission berhasil!')
+    }
+
+}
 
 onMounted(() => {
-
-
-
     const input_register = Array.from(input.value.elements).map(data => {
         if (data.tagName == "INPUT" | data.tagName != "BUTTON") {
             return data
@@ -41,6 +92,8 @@ onMounted(() => {
     }))
 
 
+
+
 });
 </script>
 
@@ -60,28 +113,36 @@ onMounted(() => {
                 <div
                     class="w-full h-full px-10 py-20 flex flex-col border justify-center items-start max-md:items-center max-md:gap-5 ">
                     <h1 class="text-[#D73F3F] font-bold text-4xl">Submit Website</h1>
-
-                    <form action="" class="w-full mt-2 flex flex-col gap-8 justify-center max-md:items-center "
-                        ref="form_register">
+                    <form @submit.prevent="onSubmit"
+                        class="w-full mt-2 flex flex-col gap-6 justify-center max-md:items-center " ref="form_register">
 
                         <!--Input nama tim-->
                         <div class="flex flex-col w-[70%] max-md:w-full">
                             <label for="nama_tim" class="text-md font-semibold text-black">Nama Tim</label>
-                            <input type="text" class="border-b-2 border-red-500 rounded-sm p-2  text-black"
+                            <input type="text" v-model="data_form.team_name"
+                                class="border-b-2 border-red-500 rounded-sm p-2  text-black"
                                 placeholder="Masukan Nama Tim" name="nama_tim" required>
                         </div>
 
 
-                        <!--Input Bukti Pembayaran-->
                         <div class="flex flex-col w-[70%] max-md:w-full">
-                            <label for="" class="text-md font-semibold text-black">Link Repositori Github : </label>
-                            <input type="text" class="border-b-2 border-red-500 rounded-sm p-2  text-black"
-                                placeholder="Link Repositori" required>
+                            <label for="" class="text-md font-semibold text-black">Link Repositori Github / GDrive :
+                            </label>
+                            <input type="text" v-model="data_form.repo_link" ref="input_repository"
+                                class="border-b-2 border-red-500 rounded-sm p-2  text-black"
+                                placeholder="Link Repositori" @input="repoHandler" required>
+                            <p class="text-xs text-black mt-1">Pastikan Repositori Web / Penyimpanan bersifat Publik!
+                            </p>
                         </div>
+                        <p class="text-black font-black">ATAU</p>
                         <div class="flex flex-col w-[70%] max-md:w-full">
                             <label for="" class="text-md font-semibold text-black">Upload File Web : </label>
-                            <input type="file"
+                            <input type="file" @change="fileHandler" ref="input_file"
+                                accept="application/vnd.rar, .zip, .7z"
                                 class="cursor-pointer border-b-2 border-red-500 rounded-sm p-2  text-black" required>
+                            <p class="text-xs text-black mt-1">Pastikan Ukuran File Dibawah 50MB dan dengan format
+                                .rar!!</p>
+
                         </div>
                         <button
                             class="submit bg-red-800 w-[70%] max-md:w-full text-white cursor-pointer py-2 px-10 rounded-2xl font-semibold">Submit</button>

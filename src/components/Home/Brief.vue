@@ -43,8 +43,8 @@ onMounted(() => {
             <div class="brief   flex flex-col justify-between max-md:text-center">
                 <h1 class="font-black text-4xl tracking-wide">CALLING ALL STUDENTS INNOVATORS </h1>
                 <div class="flex justify-between items-center-safe max-md:flex-col max-md:mt-5 max-md:gap-5">
-                    <p class="text-sm font-normal text-[#A1A1AA] w-2xl max-md:w-full">Lomba UNIPRO STAGE X yang
-                        bertemakan <span class="text-white">Lomba Web Development</span> diadakan untuk siswa - siswi
+                    <p class="text-sm font-normal text-[#A1A1AA] w-2xl max-md:w-full">UNIPRO STAGE X adalah Event 
+                        <span class="text-white">Lomba Web Development</span> yang diadakan NASIONAL untuk siswa - siswi
                         SMK/SMA
                         sederajat</p>
                     <button
