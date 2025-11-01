@@ -1,4 +1,7 @@
 <script setup>
+
+import heroImage1 from "../../assets/hero-1.jpg"
+
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { onMounted } from 'vue';
@@ -34,8 +37,8 @@ onMounted(() => {
 
 <template>
     <div id="get_started_section" class="text-white relative w-full h-dvh  flex justify-center items-center ">
-        <div
-            class="bg-[url(../src/assets/hero-1.jpg)] bg-center bg-cover bg-no-repeat absolute opacity-40 grayscale-50 w-full h-full z-5">
+        <div :style="{'backgroundImage' : `url(${heroImage1})`}"
+            class="bg-center bg-cover bg-no-repeat absolute opacity-40 grayscale-50 w-full h-full z-5">
         </div>
         <div
             class="bg-gradient-to-b from-red-600 via-red-900 to-black bg-center bg-cover bg-no-repeat absolute opacity-75 grayscale-50 w-full h-full z-6">

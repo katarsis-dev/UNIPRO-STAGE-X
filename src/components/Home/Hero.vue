@@ -2,6 +2,7 @@
 import { onMounted} from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import heroImage1 from "../../assets/hero-1.jpg"
 
 onMounted(() => {
 
@@ -64,8 +65,8 @@ onMounted(() => {
 
       <div
         class="hero_banner w-[80%] max-sm:w-[95%] max-sm:skew-x-0  h-[80dvh] relative m-auto left-0 right-0 top-8 bottom-0 bg-[#161616] rounded-2xl shadow-lg shadow-black -skew-x-12 overflow-hidden group z-10">
-        <div
-          class="w-full max-sm:skew-x-0 flex justify-center absolute items-center scale-110 h-full rounded-2xl bg-[url(../src/assets/hero-1.jpg)] bg-center bg-cover skew-x-10 grayscale-100 opacity-50  z-5">
+        <div :style="{ 'backgroundImage': `url(${heroImage1})` }"
+          class="w-full max-sm:skew-x-0 flex justify-center absolute items-center scale-110 h-full rounded-2xl  bg-center bg-cover skew-x-10 grayscale-100 opacity-50  z-5">
         </div>
         <div
           class=" w-full transition duration-500 flex justify-center absolute items-center h-full rounded-2xl bg-[#27272A] opacity-40  z-10 group-hover:opacity-20">
@@ -78,10 +79,10 @@ onMounted(() => {
             UNIPRO adalah Lomba tahunan yang diselenggarakan oleh organisasi HIMPUNAN MAHASISWA SISTEM INFORMASI
             UNIVERSITAS PGRI KANJURUHAN MALANG
           </p>
-            <button
-              class="start_btn cursor-pointer bg-[#B91C1C] pb-3 pt-3 pl-4 pr-4 font-bold rounded-xl mt-2 hover:bg-[#991B1B] shadow-[#1b1b1b] shadow-md">
-              Mulai Sekarang
-            </button>
+          <button
+            class="start_btn cursor-pointer bg-[#B91C1C] pb-3 pt-3 pl-4 pr-4 font-bold rounded-xl mt-2 hover:bg-[#991B1B] shadow-[#1b1b1b] shadow-md">
+            Mulai Sekarang
+          </button>
         </div>
       </div>
 

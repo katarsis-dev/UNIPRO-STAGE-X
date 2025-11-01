@@ -2,6 +2,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { onMounted } from 'vue';
+import heroImage2 from "../../assets/hero-2.png"
+
 onMounted(() => {
     const brief_component = document.getElementsByClassName("brief")
     const brief_container = document.getElementsByClassName("brief_container")[0]
@@ -40,7 +42,7 @@ onMounted(() => {
 
 
         <div class="brief_container w-[90%] flex flex-col justify-center gap-7 text-white relative z-7">
-            <div class="brief   flex flex-col justify-between max-md:text-center">
+            <div class="brief flex flex-col justify-between max-md:text-center">
                 <h1 class="font-black text-4xl tracking-wide">CALLING ALL STUDENTS INNOVATORS </h1>
                 <div class="flex justify-between items-center-safe max-md:flex-col max-md:mt-5 max-md:gap-5">
                     <p class="text-sm font-normal text-[#A1A1AA] w-2xl max-md:w-full">UNIPRO STAGE X adalah Event 
@@ -55,7 +57,7 @@ onMounted(() => {
             </div>
 
             <div class="brief shadow-lg shadow-black rounded-4xl">
-                <img src="/src/assets/hero-2.png" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-80"
+                <img :src="heroImage2" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-80"
                     alt="">
             </div>
         </div>

@@ -1,6 +1,7 @@
 <script setup>
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/all';
+import logo from "../assets/logo.png"
 
 import { onMounted, onUnmounted, useTemplateRef } from 'vue';
 
@@ -96,7 +97,7 @@ onUnmounted(() => {
     <div
       class="w-[90%]  max-w-[1360px] inset-shadow-2xs border-4 border-t-0 border-[#262626] m-0  flex flex-nowrap justify-between shadow-black shadow-2xl rounded-b-3xl pl-4 pr-4 bg-black content-center">
       <button class="hero-btn cursor-pointer">
-        <img src="../assets/logo.png" alt="" class="w-[100px]">
+        <img :src="logo" alt="" class="w-[100px]">
       </button>
       <div class="min-md:hidden flex items-center">
         <button ref="navbar_btn"

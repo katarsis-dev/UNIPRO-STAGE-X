@@ -1,3 +1,7 @@
+<script setup>
+import logo from "../assets/logo.png"
+</script>
+
 <template>
     <footer class="bg-black w-full text-gray-300">
 
@@ -65,7 +69,7 @@
                     </ul>
                 </div>
 
-                <img src="../assets/logo.png" alt="" class="w-100">
+                <img :src="logo" alt="" class="w-100 cursor-pointer">
             </div>
 
             <div class="mt-12 border-t border-gray-700 pt-8">

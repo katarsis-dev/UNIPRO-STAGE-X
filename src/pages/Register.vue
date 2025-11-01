@@ -2,6 +2,8 @@
 import gsap from 'gsap';
 import { ref, onMounted, useTemplateRef, reactive } from 'vue';
 import { supabase } from '../lib/supabaseClient';
+import heroImage1 from "../assets/hero-1.jpg"
+import logo from "../assets/logo.png"
 
 const form_area = useTemplateRef("form_register")
 
@@ -206,8 +208,7 @@ onMounted(() => {
                             </label>
                             <input type="file" name="pembayaran_photo" @change="fileHandler"
                                 accept="image/jpeg, image/png, image/jpg"
-                                class="cursor-pointer border-b-2 rounded-sm p-2 text-black" placeholder="test"
-                                required>
+                                class="cursor-pointer border-b-2 rounded-sm p-2 text-black" placeholder="test" required>
                         </div>
                         <button
                             class="submit bg-red-800 w-[60%] max-md:w-full text-white cursor-pointer py-2 px-10 rounded-2xl font-semibold">Submit</button>
@@ -228,14 +229,14 @@ onMounted(() => {
 
             <div id="form-banner_side"
                 class="bg-[#962020] relative  w-[50%] flex items-center justify-center max-md:rounded-t-2xl max-md:w-[95%]">
-                <div
-                    class="max-md:rounded-t-2xl bg-[url(../src/assets/hero-1.jpg)] bg-center bg-cover bg-no-repeat absolute opacity-40 grayscale-50 w-full h-full z-5">
+                <div :style="{ 'backgroundImage': `url(${heroImage1})` }"
+                    class="max-md:rounded-t-2xl bg-center bg-cover bg-no-repeat absolute opacity-40 grayscale-50 w-full h-full z-5">
                 </div>
                 <div
                     class="max-md:rounded-t-2xl bg-gradient-to-b from-red-600 via-red-900 to-black bg-center bg-cover bg-no-repeat absolute opacity-75 grayscale-50 w-full h-full z-6">
                 </div>
                 <div id="image_form" class="max-md:rounded-t-2xl relative z-10">
-                    <img src="../assets/logo.png" alt="">
+                    <img :src="logo" alt="">
                 </div>
             </div>
         </div>
