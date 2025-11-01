@@ -4,63 +4,38 @@ import vue from "@vitejs/plugin-vue";
 // --- Impor Plugin ---
 import tailwindcss from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer";
-import { nodePolyfills } from "vite-plugin-node-polyfills";
-import viteImagemin from "vite-plugin-imagemin";
-import sitemap from "vite-plugin-sitemap";
+import { nodePolyfills } from "vite-plugin-node-polyfills"; // Untuk ExcelJS
+import sitemap from "vite-plugin-sitemap"; // Untuk SEO
+
+// JANGAN impor 'viteImagemin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // ===========================================
-  // 1. PLUGINS
-  // ===========================================
   plugins: [
     vue(),
 
     // Wajib ada untuk ExcelJS (dari riwayat kita)
     nodePolyfills(),
 
-    // FOKUS PERFORMA: Optimasi Gambar
-    // Plugin ini hanya berjalan saat 'yarn build'
-    viteImagemin({
-      apply: "build",
-      verbose: true, // Tampilkan log kompresi
-      gifsicle: { optimizationLevel: 3 },
-      mozjpeg: { quality: 75 },
-      pngquant: { quality: [0.65, 0.8], speed: 4 },
-      svgo: {
-        plugins: [{ name: "removeViewBox" }, { name: "removeEmptyAttrs" }],
-      },
-    }),
-
     // FOKUS SEO: Membuat sitemap.xml
     sitemap({
-      // GANTI DENGAN URL DOMAIN PRODUKSI-mu
-      hostname: "https://www.unipro-unikama.com",
+      hostname: "https://nama-domain-kamu.com", // GANTI INI
     }),
+
+    // KITA HAPUS TOTAL viteImagemin DARI SINI
   ],
 
-  // ===========================================
-  // 2. CSS (Tailwind)
-  // ===========================================
   css: {
     postcss: {
       plugins: [tailwindcss(), autoprefixer()],
     },
   },
 
-  // ===========================================
-  // 3. KONFIGURASI BUILD (PERFORMA)
-  // ===========================================
   build: {
-    // Matikan sourcemap untuk produksi
     sourcemap: false,
-
-    // Konfigurasi Rollup
     rollupOptions: {
       output: {
-        // FOKUS PERFORMA: Code Splitting
-        // Ini adalah konfigurasi AMAN yang kita temukan.
-        // Ini memisahkan 'gsap' dan 'vue' ke file sendiri agar cache lebih efisien.
+        // Konfigurasi rollupOptions.output yang AMAN (dari config terakhir kita)
         manualChunks(id) {
           if (id.includes("gsap")) {
             return "gsap";
