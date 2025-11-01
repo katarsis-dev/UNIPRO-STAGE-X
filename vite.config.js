@@ -8,6 +8,7 @@ import path from "path";
 import tailwindcss from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer";
 import { nodePolyfills } from "vite-plugin-node-polyfills"; // Untuk ExcelJS
+import viteImagemin from "vite-plugin-imagemin"; // Untuk Performa (yang kamu minta)
 import sitemap from "vite-plugin-sitemap"; // Untuk SEO
 
 // https://vitejs.dev/config/
@@ -32,16 +33,24 @@ export default defineConfig({
     nodePolyfills(),
 
     // FOKUS PERFORMA: Optimasi Gambar
-    // Ini yang kamu minta. Ini HANYA berjalan saat 'yarn build'
-   
+    // INI YANG KAMU MINTA.
+    // Jika build Vercel crash, HAPUS BLOK INI.
+    viteImagemin({
+      apply: "build",
+      verbose: true,
+      gifsicle: { optimizationLevel: 3 },
+      mozjpeg: { quality: 75 },
+      pngquant: { quality: [0.65, 0.8], speed: 4 },
+      svgo: {
+        plugins: [{ name: "removeViewBox" }, { name: "removeEmptyAttrs" }],
+      },
+    }),
 
     // FOKUS SEO: Membuat sitemap.xml
     sitemap({
       // GANTI DENGAN URL DOMAIN PRODUKSI-mu
-      hostname: "https://nama-domain-kamu.com",
+      hostname: "https://www.unipro-unikama.com",
     }),
-
-    // TIDAK ADA 'vite-plugin-checker' (biang kerok typescript)
   ],
 
   // ===========================================
@@ -58,7 +67,6 @@ export default defineConfig({
   // ===========================================
   build: {
     sourcemap: false,
-
     rollupOptions: {
       output: {
         // FOKUS PERFORMA: Code Splitting untuk GSAP & Vue
