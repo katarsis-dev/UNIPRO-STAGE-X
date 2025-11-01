@@ -5,11 +5,11 @@ import tailwindcss from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer";
 
 import viteImagemin from "vite-plugin-imagemin";
-
+import { nodePolyfills } from "vite-plugin-node-polyfills";
 export default defineConfig({
   plugins: [
     vue(),
-
+    nodePolyfills(),
     viteImagemin({
       apply: "build",
       gifsicle: {
@@ -81,16 +81,6 @@ export default defineConfig({
         // Pola penamaan file JS utama
         entryFileNames: "assets/js/[name]-[hash].js",
       },
-    },
-  },
-
-  define: {
-    global: "globalThis",
-  },
-
-  resolve: {
-    alias: {
-      buffer: "buffer/",
     },
   },
 });
