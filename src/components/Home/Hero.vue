@@ -2,7 +2,7 @@
 import { onMounted} from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import heroImage1 from "../../assets/hero-1.jpg"
+import heroImage1 from "@/assets/hero-1.jpg"
 
 onMounted(() => {
 

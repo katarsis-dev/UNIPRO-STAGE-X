@@ -6,10 +6,7 @@ import tailwindcss from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer";
 import { nodePolyfills } from "vite-plugin-node-polyfills"; // Untuk ExcelJS
 import sitemap from "vite-plugin-sitemap"; // Untuk SEO
-
-// JANGAN impor 'viteImagemin'
-
-// https://vitejs.dev/config/
+import path from "path"
 export default defineConfig({
   plugins: [
     vue(),
@@ -48,6 +45,11 @@ export default defineConfig({
           }
         },
       },
+    },
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 });
