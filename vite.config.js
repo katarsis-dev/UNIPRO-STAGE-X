@@ -5,7 +5,7 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 
 // --- Impor Plugin ---
-import tailwindcss from "@tailwindcss/postcss";
+import tailwindcss from "@tailwindcss/vite";
 import autoprefixer from "autoprefixer";
 import { nodePolyfills } from "vite-plugin-node-polyfills"; // Untuk ExcelJS
 import viteImagemin from "vite-plugin-imagemin"; // Untuk Performa (yang kamu minta)
