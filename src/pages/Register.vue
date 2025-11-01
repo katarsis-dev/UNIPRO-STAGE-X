@@ -75,7 +75,7 @@ async function submitForm() {
         } else if (uploadedError) {
             throw uploadedError;
         } else {
-            alert("Upload Berhasil")
+            alert("Pendaftaran Berhasil,tunggu konfirmasi Pembayaran Email,jika dalam 1x24 jam,anda belum mendapatkan konfirmasi, hubungi kami lewat Kontak yang ada,sertakan bukti pembayaran dan kelengkapan lainnya")
         }
         
     } catch(error){

@@ -55,7 +55,7 @@ onMounted(() => {
             </div>
 
             <div class="brief shadow-lg shadow-black rounded-4xl">
-                <img src="/src/assets/hero-1.jpg" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-80"
+                <img src="/src/assets/hero-2.png" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-80"
                     alt="">
             </div>
         </div>
