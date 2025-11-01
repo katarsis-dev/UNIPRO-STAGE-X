@@ -10,27 +10,7 @@ export default defineConfig({
   plugins: [
     vue(),
     nodePolyfills(),
-    viteImagemin({
-      apply: "build",
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      mozjpeg: {
-        quality: 75,
-      },
-      pngquant: {
-        quality: [0.65, 0.8],
-        speed: 4,
-      },
-      svgo: {
-        plugins: [
-          { name: "removeViewBox" },
-          { name: "removeEmptyAttrs", active: false },
-        ],
-      },
-      verbose: true, // Tampilkan log kompresi di terminal
-    }),
+   
   ],
 
   css: {
