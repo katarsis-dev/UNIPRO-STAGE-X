@@ -35,10 +35,7 @@ export default defineConfig({
 
   css: {
     postcss: {
-      plugins: [
-        tailwindcss(),
-        autoprefixer(),
-      ],
+      plugins: [tailwindcss(), autoprefixer()],
     },
   },
 
@@ -84,6 +81,16 @@ export default defineConfig({
         // Pola penamaan file JS utama
         entryFileNames: "assets/js/[name]-[hash].js",
       },
+    },
+  },
+
+  define: {
+    global: "globalThis",
+  },
+
+  resolve: {
+    alias: {
+      buffer: "buffer/",
     },
   },
 });
