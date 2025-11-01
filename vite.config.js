@@ -1,65 +1,77 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
+// --- Impor Plugin ---
 import tailwindcss from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer";
-
-import viteImagemin from "vite-plugin-imagemin";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
+import viteImagemin from "vite-plugin-imagemin";
+import sitemap from "vite-plugin-sitemap";
+
+// https://vitejs.dev/config/
 export default defineConfig({
+  // ===========================================
+  // 1. PLUGINS
+  // ===========================================
   plugins: [
     vue(),
+
+    // Wajib ada untuk ExcelJS (dari riwayat kita)
     nodePolyfills(),
-   
+
+    // FOKUS PERFORMA: Optimasi Gambar
+    // Plugin ini hanya berjalan saat 'yarn build'
+    viteImagemin({
+      apply: "build",
+      verbose: true, // Tampilkan log kompresi
+      gifsicle: { optimizationLevel: 3 },
+      mozjpeg: { quality: 75 },
+      pngquant: { quality: [0.65, 0.8], speed: 4 },
+      svgo: {
+        plugins: [{ name: "removeViewBox" }, { name: "removeEmptyAttrs" }],
+      },
+    }),
+
+    // FOKUS SEO: Membuat sitemap.xml
+    sitemap({
+      // GANTI DENGAN URL DOMAIN PRODUKSI-mu
+      hostname: "https://www.unipro-unikama.com",
+    }),
   ],
 
+  // ===========================================
+  // 2. CSS (Tailwind)
+  // ===========================================
   css: {
     postcss: {
       plugins: [tailwindcss(), autoprefixer()],
     },
   },
 
+  // ===========================================
+  // 3. KONFIGURASI BUILD (PERFORMA)
+  // ===========================================
   build: {
+    // Matikan sourcemap untuk produksi
     sourcemap: false,
 
-    // Opsi untuk Rollup (bundler di balik Vite)
+    // Konfigurasi Rollup
     rollupOptions: {
       output: {
-        // Logika untuk memisahkan library besar ke file-nya sendiri
-        // Ini meningkatkan caching di browser user
+        // FOKUS PERFORMA: Code Splitting
+        // Ini adalah konfigurasi AMAN yang kita temukan.
+        // Ini memisahkan 'gsap' dan 'vue' ke file sendiri agar cache lebih efisien.
         manualChunks(id) {
-          // Pisahkan GSAP ke chunk sendiri (gsap.js)
           if (id.includes("gsap")) {
             return "gsap";
           }
-          // Pisahkan Vue, Vue Router, dll. ke chunk sendiri (vue.js)
           if (id.includes("vue") || id.includes("@vue")) {
             return "vue";
           }
-          // Sisanya dari node_modules masuk ke vendor.js
           if (id.includes("node_modules")) {
             return "vendor";
           }
         },
-
-        // Pola penamaan file aset (gambar, font)
-        assetFileNames: (assetInfo) => {
-          let extType = assetInfo.name.split(".").pop();
-          // Kelompokkan gambar ke folder 'img'
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-            extType = "img";
-          }
-          // Kelompokkan font ke folder 'font'
-          else if (/woff|woff2|eot|ttf|otf/i.test(extType)) {
-            extType = "font";
-          }
-          return `assets/${extType}/[name]-[hash][extname]`;
-        },
-
-        // Pola penamaan file chunk JS
-        chunkFileNames: "assets/js/[name]-[hash].js",
-        // Pola penamaan file JS utama
-        entryFileNames: "assets/js/[name]-[hash].js",
       },
     },
   },
