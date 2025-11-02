@@ -85,8 +85,8 @@ onMounted(() => {
                                 <div class="w-full text-center py-2 px-4 bg-[#494949] rounded-md">
                                     <p>Setelah melakukan pembayaran,tunggu 1x24 jam jika tidak ada konfirmasi via
                                         gmail/whatsapp,
-                                        harap melakukan konfirmasi dengan mengirimkan formulir
-                                        pendaftaran,serta nama tim dan menghubungi contact person yang tertera, disertai
+                                        harap melakukan konfirmasi dengan mengirimkan nama tim,dan nama anggota tim
+                                        dan menghubungi contact person yang tertera, disertai
                                         bukti transfer.
                                     </p>
                                 </div>

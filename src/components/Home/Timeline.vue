@@ -65,6 +65,7 @@ onMounted(() => {
                             <div class="text-center font-bold max-md:gap-2 max-md:mt-2 flex flex-col">
                                 <p class="text-sm max-md:text-xs">Gelombang I : 29 Juli – 2 September 2025</p>
                                 <p class="text-sm max-md:text-xs">Gelombang II : 3 September – 30 Oktober 2025</p>
+                                <p class="text-sm max-md:text-xs">Gelombang III : 31 Oktober – 24 Januari 2026</p>
                             </div>
                         </div>
 
@@ -75,11 +76,11 @@ onMounted(() => {
                             <div
                                 class=" group-hover:bg-black group-hover:text-white transition duration-600 p-2 shadow-[2px_2px_2px_2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] bg-[#922121]  text-center rounded-2xl w-full ">
 
-                                <h5 class="font-black text-lg max-md:text-sm">Pengumpulan Karya &
+                                <h5 class="font-black text-lg max-md:text-sm">Pengumpulan Karya (Max) &
                                     Pengumuman
                                     Finalis</h5>
                             </div>
-                            <p class="text-sm max-md:text-xs font-bold">1 November 2025</p>
+                            <p class="text-sm max-md:text-xs font-bold">2 Januari 2026</p>
                         </div>
 
                         <!--Card-4-->
@@ -91,7 +92,7 @@ onMounted(() => {
 
                                 <h5 class="font-black text-xl max-md:text-sm ">Technical Meeting</h5>
                             </div>
-                            <p class="text-sm max-md:text-xs font-bold ">13 November 2025</p>
+                            <p class="text-sm max-md:text-xs font-bold ">15 Januari 2026</p>
                         </div>
 
                         <!--Card-5-->
@@ -102,7 +103,7 @@ onMounted(() => {
 
                                 <h5 class="font-black text-xl max-md:text-sm">Final</h5>
                             </div>
-                            <p class="text-sm max-md:text-xs font-bold">22 November 2025</p>
+                            <p class="text-sm max-md:text-xs font-bold">24 Januari 2026</p>
                         </div>
 
                     </div>
