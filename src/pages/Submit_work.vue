@@ -40,15 +40,20 @@ const repoHandler = (e) => {
 async function onSubmit(e) {
     const nameFile = `submission-${data_form.team_name}-${Date.now()}`
 
-    const { error: uploadedError } = await supabase.storage.from("file_submission").upload(nameFile, uploaded_file.value)
-    const { data } = await supabase.storage.from("file_submission").getPublicUrl(nameFile)
+    if(uploaded_file.value){
 
-    const { error } = await supabase.rpc('handle_submission', {
-        team_name_input: data_form.team_name,
-        link_repo_input: input_repository.value.value,
-        link_file_input: data.publicUrl
+        const { error: uploadedError } = await supabase.storage.from("file_submission").upload(nameFile, uploaded_file.value)
+        const { data } = await supabase.storage.from("file_submission").getPublicUrl(nameFile)
 
-    })
+        const { error } = await supabase.rpc('handle_submission', {
+            team_name_input: data_form.team_name,
+            link_repo_input: input_repository.value.value,
+            link_file_input: data.publicUrl
+
+        })
+
+    }
+
 
     if (error) {
         if(error.message.includes("duplicate")){
