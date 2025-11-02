@@ -2,7 +2,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { onMounted } from 'vue';
-import heroImage2 from "@/assets/hero-2.png"
+import heroImage2 from "@/public/assets/hero-2.png"
 
 onMounted(() => {
     const brief_component = document.getElementsByClassName("brief")

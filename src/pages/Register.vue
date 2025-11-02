@@ -2,8 +2,8 @@
 import gsap from 'gsap';
 import { ref, onMounted, useTemplateRef, reactive } from 'vue';
 import { supabase } from '../lib/supabaseClient';
-import heroImage1 from "@/assets/hero-1.jpg"
-import logo from "@/assets/logo.png"
+import heroImage1 from "@/public/assets/hero-1.jpg"
+import logo from "@/public/assets/logo.png"
 
 const form_area = useTemplateRef("form_register")
 

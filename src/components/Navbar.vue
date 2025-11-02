@@ -1,7 +1,7 @@
 <script setup>
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/all';
-import logo from "@/assets/logo.png"
+import logo from "@/public/assets/logo.png"
 
 import { onMounted, onUnmounted, useTemplateRef } from 'vue';
 
