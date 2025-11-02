@@ -172,7 +172,7 @@ onMounted(() => {
                     class="max-md:rounded-t-2xl bg-gradient-to-b from-red-600 via-red-900 to-black bg-center bg-cover bg-no-repeat absolute opacity-75 grayscale-50 w-full h-full z-6">
                 </div>
                 <div id="image_form" class="max-md:rounded-t-2xl relative z-10">
-                    <img :src="logo" alt="" loading="lazy" decoding="async">
+                    <img :src="logo" alt="" loading="lazy" decoding="async" fetchpriority="high">
                 </div>
             </div>
         </div>

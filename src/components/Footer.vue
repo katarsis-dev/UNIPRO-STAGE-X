@@ -69,7 +69,8 @@ import logo from "@/public/assets/logo.webp"
                     </ul>
                 </div>
 
-                <img :src="logo" alt="" class="w-100 cursor-pointer" loading="lazy" decoding="async">
+                <img :src="logo" alt="" class="w-100 cursor-pointer" loading="lazy" decoding="async"
+                    fetchpriority="high">
             </div>
 
             <div class="mt-12 border-t border-gray-700 pt-8">

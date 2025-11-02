@@ -59,7 +59,7 @@ onMounted(() => {
 
             <div class="brief shadow-lg shadow-black rounded-4xl">
                 <img :src="heroImage2" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-80" alt=""
-                    loading="lazy" decoding="async">
+                    loading="lazy" decoding="async" fetchpriority="high">
             </div>
         </div>
     </div>
