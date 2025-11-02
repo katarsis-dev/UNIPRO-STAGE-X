@@ -1,49 +1,33 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
-// WAJIB ADA: Untuk memperbaiki alias '@'
 import path from "path";
 
-// --- Impor Plugin ---
-// 1. Ini adalah plugin Tailwind yang BENAR (sesuai package.json-mu)
 import tailwind from "@tailwindcss/vite";
-// (Kita TIDAK pakai @tailwindcss/postcss atau autoprefixer di sini)
 
-// 2. Wajib untuk 'ExcelJS'
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 
-// 3. Untuk Performa (yang kamu minta)
 import viteImagemin from "vite-plugin-imagemin";
 
-// 4. Untuk SEO
 import sitemap from "vite-plugin-sitemap";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  // ==========================================================
-  // FIX #1: Alias '@' (Memperbaiki error "../../assets")
-  // ==========================================================
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./"),
     },
   },
 
-  // ==========================================================
-  // PLUGINS (Sesuai tools-mu)
-  // ==========================================================
   plugins: [
     vue(),
 
-    // 1. Plugin Tailwind (Otomatis, anti-ribet)
     tailwind(),
 
-    // 2. Plugin ExcelJS (FIX 'global is not defined')
     nodePolyfills(),
 
-    // 3. Plugin Optimasi Gambar (PERINGATAN DI BAWAH)
     viteImagemin({
-      apply: "build", // Hanya jalan saat 'yarn build'
+      apply: "build",
       verbose: true,
       gifsicle: { optimizationLevel: 3 },
       mozjpeg: { quality: 75 },
@@ -89,10 +73,7 @@ export default defineConfig({
           }
         },
 
-        // FIX 404 GAMBAR:
-        // Kita BIARKAN VITE yang mengurus nama file aset.
-        // Blok 'assetFileNames' SENGAJA DIHAPUS karena itu
-        // biang kerok 404 gambar di Vercel.
+
       },
     },
   },
