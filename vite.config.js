@@ -89,7 +89,10 @@ export default defineConfig({
           }
         },
 
-
+        // FIX 404 GAMBAR:
+        // Kita BIARKAN VITE yang mengurus nama file aset.
+        // Blok 'assetFileNames' SENGAJA DIHAPUS karena itu
+        // biang kerok 404 gambar di Vercel.
       },
     },
   },
