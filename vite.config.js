@@ -5,38 +5,45 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 
 // --- Impor Plugin ---
-import tailwindcss from "@tailwindcss/vite";
-import autoprefixer from "autoprefixer";
-import { nodePolyfills } from "vite-plugin-node-polyfills"; // Untuk ExcelJS
-import viteImagemin from "vite-plugin-imagemin"; // Untuk Performa (yang kamu minta)
-import sitemap from "vite-plugin-sitemap"; // Untuk SEO
+// 1. Ini adalah plugin Tailwind yang BENAR (sesuai package.json-mu)
+import tailwind from "@tailwindcss/vite";
+// (Kita TIDAK pakai @tailwindcss/postcss atau autoprefixer di sini)
+
+// 2. Wajib untuk 'ExcelJS'
+import { nodePolyfills } from "vite-plugin-node-polyfills";
+
+// 3. Untuk Performa (yang kamu minta)
+import viteImagemin from "vite-plugin-imagemin";
+
+// 4. Untuk SEO
+import sitemap from "vite-plugin-sitemap";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // ===========================================
-  // 1. FIX WAJIB: Resolve Alias '@'
-  // Ini adalah FIX untuk error "../../assets/logo.png"
-  // ===========================================
+  // ==========================================================
+  // FIX #1: Alias '@' (Memperbaiki error "../../assets")
+  // ==========================================================
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
 
-  // ===========================================
-  // 2. PLUGINS
-  // ===========================================
+  // ==========================================================
+  // PLUGINS (Sesuai tools-mu)
+  // ==========================================================
   plugins: [
     vue(),
 
-    // Wajib ada untuk 'ExcelJS' (dari riwayat kita)
+    // 1. Plugin Tailwind (Otomatis, anti-ribet)
+    tailwind(),
+
+    // 2. Plugin ExcelJS (FIX 'global is not defined')
     nodePolyfills(),
 
-    // FOKUS PERFORMA: Optimasi Gambar
-    // INI YANG KAMU MINTA.
-    // Jika build Vercel crash, HAPUS BLOK INI.
+    // 3. Plugin Optimasi Gambar (PERINGATAN DI BAWAH)
     viteImagemin({
-      apply: "build",
+      apply: "build", // Hanya jalan saat 'yarn build'
       verbose: true,
       gifsicle: { optimizationLevel: 3 },
       mozjpeg: { quality: 75 },
@@ -46,25 +53,25 @@ export default defineConfig({
       },
     }),
 
-    // FOKUS SEO: Membuat sitemap.xml
+    // 4. Plugin SEO (FIX 'robots.txt' crash)
     sitemap({
-      // GANTI DENGAN URL DOMAIN PRODUKSI-mu
-      hostname: "https://www.unipro-unikama.com",
+      hostname: "https://nama-domain-kamu.com", // GANTI DENGAN URL-mu
+      generateRobotsTxt: false, // <-- FIX build crash
     }),
+
+    // TIDAK ADA 'vite-plugin-checker' (biang kerok typescript)
   ],
 
-  // ===========================================
-  // 3. CSS (Tailwind)
-  // ===========================================
-  css: {
-    postcss: {
-      plugins: [tailwindcss(), autoprefixer()],
-    },
-  },
+  // ==========================================================
+  // CSS (KOSONG, karena 'tailwind()' sudah mengurusnya)
+  // ==========================================================
+  // Blok 'css: { postcss: ... }' SENGAJA DIHAPUS karena
+  // @tailwindcss/vite sudah otomatis mengurusnya.
+  // Ini adalah FIX untuk error 'Cannot find package @tailwindcss/postcss'.
 
-  // ===========================================
-  // 4. KONFIGURASI BUILD (PERFORMA & FIX 404)
-  // ===========================================
+  // ==========================================================
+  // KONFIGURASI BUILD (PERFORMA & FIX 404 GAMBAR)
+  // ==========================================================
   build: {
     sourcemap: false,
     rollupOptions: {
@@ -82,9 +89,7 @@ export default defineConfig({
           }
         },
 
-        // KITA BIARKAN VITE YANG MENGATUR NAMA FILE ASET
-        // Ini adalah FIX untuk error 404 gambar di Vercel.
-        // TIDAK ADA 'assetFileNames' di sini.
+
       },
     },
   },
