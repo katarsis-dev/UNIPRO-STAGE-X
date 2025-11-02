@@ -39,20 +39,19 @@ const repoHandler = (e) => {
 
 async function onSubmit(e) {
     const nameFile = `submission-${data_form.team_name}-${Date.now()}`
-
+    let statusUpload = false
     if(uploaded_file.value){
-
         const { error: uploadedError } = await supabase.storage.from("file_submission").upload(nameFile, uploaded_file.value)
-        const { data } = await supabase.storage.from("file_submission").getPublicUrl(nameFile)
-
-        const { error } = await supabase.rpc('handle_submission', {
-            team_name_input: data_form.team_name,
-            link_repo_input: input_repository.value.value,
-            link_file_input: data.publicUrl
-
-        })
-
+        statusUpload = true
     }
+
+    const { data } = statusUpload ? await supabase.storage.from("file_submission").getPublicUrl(nameFile) : ""
+
+    const { error } = await supabase.rpc('handle_submission', {
+        team_name_input: data_form.team_name,
+        link_repo_input: input_repository.value.value,
+        link_file_input: statusUpload ? data.publicUrl : null
+    })
 
 
     if (error) {
