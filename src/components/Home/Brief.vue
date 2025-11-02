@@ -2,7 +2,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { onMounted } from 'vue';
-import heroImage2 from "@/public/assets/hero-2.png"
+import heroImage2 from "@/public/assets/hero-2.webp"
 
 onMounted(() => {
     const brief_component = document.getElementsByClassName("brief")
@@ -45,10 +45,11 @@ onMounted(() => {
             <div class="brief flex flex-col justify-between max-md:text-center">
                 <h1 class="font-black text-4xl tracking-wide">CALLING ALL STUDENTS INNOVATORS </h1>
                 <div class="flex justify-between items-center-safe max-md:flex-col max-md:mt-5 max-md:gap-5">
-                    <p class="text-sm font-normal text-[#A1A1AA] w-2xl max-md:w-full">UNIPRO STAGE X adalah Event 
+                    <p class="text-sm font-normal text-[#A1A1AA] w-2xl max-md:w-full">UNIPRO STAGE X adalah Event
                         <span class="text-white">Lomba Web Development</span> yang diadakan NASIONAL untuk siswa - siswi
                         SMK/SMA
-                        sederajat</p>
+                        sederajat
+                    </p>
                     <button
                         class="cursor-pointer bg-[#B91C1C] pb-3 pt-3 pl-4 pr-4 font-bold rounded-xl max-md:w-full hover:bg-[#991B1B] shadow-[#1b1b1b] shadow-md">
                         <a href="https://linktr.ee/UniproStageX" target="_blank">Learn
@@ -57,8 +58,8 @@ onMounted(() => {
             </div>
 
             <div class="brief shadow-lg shadow-black rounded-4xl">
-                <img :src="heroImage2" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-80"
-                    alt="">
+                <img :src="heroImage2" class="w-full h-96 object-cover rounded-4xl grayscale-100 opacity-80" alt=""
+                    loading="lazy" decoding="async">
             </div>
         </div>
     </div>

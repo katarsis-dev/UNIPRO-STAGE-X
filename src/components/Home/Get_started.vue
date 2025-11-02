@@ -1,6 +1,6 @@
 <script setup>
 
-import heroImage1 from "@/public/assets/hero-1.jpg"
+import heroImage1 from "@/public/assets/hero-1.webp"
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';

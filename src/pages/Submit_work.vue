@@ -2,8 +2,8 @@
 import gsap from 'gsap';
 import { onBeforeMount, onMounted, useTemplateRef, ref, reactive } from 'vue';
 import { supabase } from '../lib/supabaseClient';
-import heroImage1 from "@/public/assets/hero-1.jpg"
-import logo from "@/public/assets/logo.png"
+import heroImage1 from "@/public/assets/hero-1.webp"
+import logo from "@/public/assets/logo.webp"
 
 const input = useTemplateRef("form_register")
 
@@ -172,7 +172,7 @@ onMounted(() => {
                     class="max-md:rounded-t-2xl bg-gradient-to-b from-red-600 via-red-900 to-black bg-center bg-cover bg-no-repeat absolute opacity-75 grayscale-50 w-full h-full z-6">
                 </div>
                 <div id="image_form" class="max-md:rounded-t-2xl relative z-10">
-                    <img :src="logo" alt="">
+                    <img :src="logo" alt="" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>

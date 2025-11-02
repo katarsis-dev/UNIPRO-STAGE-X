@@ -1,5 +1,5 @@
 <script setup>
-import logo from "@/public/assets/logo.png"
+import logo from "@/public/assets/logo.webp"
 </script>
 
 <template>
@@ -69,7 +69,7 @@ import logo from "@/public/assets/logo.png"
                     </ul>
                 </div>
 
-                <img :src="logo" alt="" class="w-100 cursor-pointer">
+                <img :src="logo" alt="" class="w-100 cursor-pointer" loading="lazy" decoding="async">
             </div>
 
             <div class="mt-12 border-t border-gray-700 pt-8">
