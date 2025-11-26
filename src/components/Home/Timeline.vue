@@ -65,9 +65,11 @@ onMounted(() => {
                             <div class="text-center font-bold max-md:gap-2 max-md:mt-2 flex flex-col">
                                 <p class="text-sm max-md:text-xs">Gelombang I : 29 Juli – 2 September 2025</p>
                                 <p class="text-sm max-md:text-xs">Gelombang II : 3 September – 30 Oktober 2025</p>
-                                <p class="text-sm max-md:text-xs">Gelombang III : 31 Oktober – 24 Januari 2026</p>
+                                <p class="text-sm max-md:text-xs">Gelombang III : 31 Oktober – 2 Januari 2026</p>
                             </div>
                         </div>
+
+
 
                         <!--Card-2-->
                         <div
@@ -76,12 +78,23 @@ onMounted(() => {
                             <div
                                 class=" group-hover:bg-black group-hover:text-white transition duration-600 p-2 shadow-[2px_2px_2px_2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] bg-[#922121]  text-center rounded-2xl w-full ">
 
-                                <h5 class="font-black text-lg max-md:text-sm">Pengumpulan Karya (Max) &
-                                    Pengumuman
-                                    Finalis</h5>
+                                <h5 class="font-black text-lg max-md:text-sm">Pengumpulan Karya (Maksimal)</h5>
                             </div>
                             <p class="text-sm max-md:text-xs font-bold">2 Januari 2026</p>
                         </div>
+
+                        <div
+                            class="card text-white group max-sm:min-w-full hover:bg-[#ef4444] hover:-translate-y-1 transition duration-600 flex flex-col gap-4 items-center justify-start max-md:justify-center min-w-4/12 max-h-96 border-5 border-[#464646] bg-[rgba(29,29,29,0.8)] p-5 shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] hover:shadow-[0px_6px_12px_-2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(0_0_0/0.3)] rounded-2xl cursor-pointer">
+
+                            <div
+                                class=" group-hover:bg-black group-hover:text-white transition duration-600 p-2 shadow-[2px_2px_2px_2px_rgb(0_0_0/0.25),0px_3px_7px_-3px_rgb(239_68_68/0.3)] bg-[#922121]  text-center rounded-2xl w-full ">
+
+                                <h5 class="font-black text-lg max-md:text-sm">Pengumuman
+                                    Finalis</h5>
+                            </div>
+                            <p class="text-sm max-md:text-xs font-bold">8 Januari 2026</p>
+                        </div>
+
 
                         <!--Card-4-->
                         <div

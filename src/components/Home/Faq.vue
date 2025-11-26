@@ -84,7 +84,7 @@ onMounted(() => {
                             <b>Himpunan Mahasiswa Sistem Informasi UNIKAMA</b> sebuah web
                             development tingkat nasional yang ditujukan untuk siswa/siswi SMA,
                             SMK, atau sederajat di seluruh Indonesia. ditahun ini UNIPRO sudah
-                            pada periode STAGE IX yang dimana menggelarkan kompetisi web
+                            pada periode STAGE X yang dimana menggelarkan kompetisi web
                             development bertemakan Innovative Clinics: Blending Creativity and
                             Technology for Quality Healthcare.
                         </p>
