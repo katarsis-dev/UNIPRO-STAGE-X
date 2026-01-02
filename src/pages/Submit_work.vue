@@ -37,6 +37,7 @@ const repoHandler = (e) => {
 }
 
 
+
 async function onSubmit(e) {
     const nameFile = `submission-${data_form.team_name}-${Date.now()}`
     let statusUpload = false
@@ -128,6 +129,8 @@ onMounted(() => {
                             <input type="text" v-model="data_form.team_name"
                                 class="border-b-2 border-red-500 rounded-sm p-2  text-black"
                                 placeholder="Masukan Nama Tim" name="nama_tim" required>
+                            <p class="text-xs text-gray-600 mt-2">Pastikan Nama Tim Sama persis dengan nama tim yang
+                                didaftarkan</p>
                         </div>
 
 
@@ -139,6 +142,7 @@ onMounted(() => {
                                 placeholder="Link Repositori" @input="repoHandler" required>
                             <p class="text-xs text-black mt-1">Pastikan Repositori Web / Penyimpanan bersifat Publik!
                             </p>
+
                         </div>
                         <p class="text-black font-black">ATAU</p>
                         <div class="flex flex-col w-[70%] max-md:w-full">

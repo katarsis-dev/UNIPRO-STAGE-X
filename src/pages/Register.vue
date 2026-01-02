@@ -7,28 +7,22 @@ import heroImage1 from "@/public/assets/hero-1.webp"
 import logo from "@/public/assets/logo.webp"
 
 const router = useRouter();
-const isLoading = ref(true); // Biar ga glitch tampil konten dulu baru ketutup
-
+const isLoading = ref(true);
 const cekStatusPendaftaran = async () => {
     try {
-        // Nanya ke Satpam Supabase: "Masih buka gak?"
         const { data: isOpen, error } = await supabase.rpc('cek_status_event');
 
         if (error) throw error;
 
-        // Kalau Server bilang FALSE (Tutup)
         if (!isOpen) {
             alert("⚠️ Mohon Maaf, Pendaftaran sudah ditutup per tanggal 3 Januari 2026!");
-            router.replace('/'); // Tendang balik ke Home
+            router.replace('/');
         } else {
-            // Kalau Masih Buka
-            isLoading.value = false; // Munculin form
+            isLoading.value = false; 
         }
 
     } catch (err) {
         console.error("Gagal cek waktu:", err.message);
-        // Opsi: Kalau error koneksi, mau ditutup atau dibuka? 
-        // Default aman: tetep buka dulu biar user ga ngamuk
         isLoading.value = false;
     }
 };
