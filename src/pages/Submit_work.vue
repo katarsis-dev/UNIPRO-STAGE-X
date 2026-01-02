@@ -20,7 +20,7 @@ const cekStatusPendaftaran = async () => {
         if (error) throw error;
 
         if (!isOpen) {
-            alert("⚠️ Mohon Maaf, Pendaftaran sudah ditutup per tanggal 3 Januari 2026!");
+            alert("⚠️ Mohon Maaf, Pengumpulan Karya sudah ditutup per tanggal 3 Januari 2026!");
             router.replace('/');
         } else {
             isLoading.value = false;
