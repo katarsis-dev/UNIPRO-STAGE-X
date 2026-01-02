@@ -2,10 +2,12 @@
 import gsap from 'gsap';
 import { onBeforeMount, onMounted, useTemplateRef, ref, reactive } from 'vue';
 import { supabase } from '../lib/supabaseClient';
+import { useRouter } from 'vue-router';
 import heroImage1 from "@/public/assets/hero-1.webp"
 import logo from "@/public/assets/logo.webp"
 
 const input = useTemplateRef("form_register")
+const router = useRouter();
 
 const uploaded_file = ref("")
 const input_repository = useTemplateRef("input_repository")
