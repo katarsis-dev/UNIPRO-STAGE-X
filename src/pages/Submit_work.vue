@@ -13,6 +13,24 @@ const input_file = useTemplateRef("input_file")
 const data_form = reactive({
     team_name: "",
 })
+const cekStatusPendaftaran = async () => {
+    try {
+        const { data: isOpen, error } = await supabase.rpc('cek_status_event');
+
+        if (error) throw error;
+
+        if (!isOpen) {
+            alert("⚠️ Mohon Maaf, Pendaftaran sudah ditutup per tanggal 3 Januari 2026!");
+            router.replace('/');
+        } else {
+            isLoading.value = false;
+        }
+
+    } catch (err) {
+        console.error("Gagal cek waktu:", err.message);
+        isLoading.value = false;
+    }
+};
 
 const fileHandler = (e) => {
     if (e.target.files.length != 0) {
@@ -69,6 +87,7 @@ async function onSubmit(e) {
 }
 
 onMounted(() => {
+    cekStatusPendaftaran()
     const input_register = Array.from(input.value.elements).map(data => {
         if (data.tagName == "INPUT" | data.tagName != "BUTTON") {
             return data
